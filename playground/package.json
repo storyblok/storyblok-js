@@ -1,0 +1,12 @@
+{
+  "name": "@storyblok/js-playground",
+  "version": "0.0.1",
+  "scripts": {
+    "demo": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "@storyblok/js": "^0.0.1",
+    "vite": "^2.4.4"
+  }
+}
