@@ -2,9 +2,9 @@ name: Release CI
 
 on:
   push:
-    branches: [master, next]
+    branches: [main]
   pull_request:
-    branches: [master, next]
+    branches: [main]
 
 jobs:
   release:

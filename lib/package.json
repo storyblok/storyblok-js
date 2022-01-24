@@ -63,8 +63,7 @@
   },
   "release": {
     "branches": [
-      "master",
-      "next"
+      "main"
     ]
   },
   "repository": {
