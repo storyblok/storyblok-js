@@ -3,8 +3,9 @@
 		<img src="https://a.storyblok.com/f/88751/1776x360/296788fb19/sb-js.png"  alt="Storyblok Logo">
 	</a>
 	<h1 align="center">@storyblok/js</h1>
+  <p align="center">
     The JavaScript plugin you need to interact with <a href="http://www.storyblok.com?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js" target="_blank">Storyblok API</a> and enable the <a href="https://www.storyblok.com/docs/guide/essentials/visual-editor?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js" target="_blank">Real-time Visual Editing Experience</a>.
-
+  </p>
   <br />
 </div>
 
@@ -89,7 +90,6 @@ const { storyblokApi } = storyblokInit({
 });
 
 const { data } = await storyblokApi.get("cdn/stories", { version: "draft" });
-</script>
 ```
 
 > Note: if you don't use `apiPlugin`, you can use your prefered method or function to fetch your data.
@@ -195,7 +195,3 @@ sbBridge.on(["input", "published", "change"], (event) => {
 
 Please see our [contributing guidelines](https://github.com/storyblok/.github/blob/master/contributing.md) and our [code of conduct](https://www.storyblok.com/trust-center#code-of-conduct?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js).
 This project use [semantic-release](https://semantic-release.gitbook.io/semantic-release/) for generate new versions by using commit messages and we use the Angular Convention to naming the commits. Check [this question](https://semantic-release.gitbook.io/semantic-release/support/faq#how-can-i-change-the-type-of-commits-that-trigger-a-release) about it in semantic-release FAQ.
-
-### License
-
-This repository is published under the [MIT](./LICENSE) license.
