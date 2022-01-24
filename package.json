@@ -2,7 +2,10 @@
   "name": "@storyblok/js-workspace",
   "private": true,
   "version": "0.0.1",
-  "workspaces": ["./lib", "./playground"],
+  "workspaces": [
+    "./lib",
+    "./playground"
+  ],
   "scripts": {
     "dev": "npm run dev --workspace=lib & npm run demo",
     "demo": "npm run demo --workspace=playground",
@@ -21,15 +24,32 @@
     "prettier": "^2.4.1"
   },
   "lint-staged": {
-    "*.{vue,svelte,js,jsx,css}": ["prettier --write", "eslint"],
-    "*.md": ["prettier --write"]
+    "*.{vue,svelte,js,jsx,css}": [
+      "prettier --write",
+      "eslint"
+    ],
+    "*.md": [
+      "prettier --write"
+    ]
   },
   "commitlint": {
-    "extends": ["@commitlint/config-conventional"]
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
   "eslintConfig": {
-    "extends": ["eslint:recommended", "prettier"],
-    "ignorePatterns": "dist/"
+    "extends": [
+      "eslint:recommended",
+      "prettier"
+    ],
+    "env": {
+      "browser": true
+    },
+    "ignorePatterns": "dist/",
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": 2018
+    }
   },
   "prettier": {
     "trailingComma": "es5",

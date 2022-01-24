@@ -52,11 +52,6 @@
       ]
     ]
   },
-  "eslintConfig": {
-    "env": {
-      "node": true
-    }
-  },
   "jest": {
     "moduleFileExtensions": [
       "js",
