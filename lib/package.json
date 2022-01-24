@@ -74,5 +74,8 @@
   "bugs": {
     "url": "https://github.com/storyblok/storyblok-js/issues"
   },
-  "homepage": "https://github.com/storyblok/storyblok-js"
+  "homepage": "https://github.com/storyblok/storyblok-js",
+  "publishConfig": {
+    "access": "public"
+  }
 }

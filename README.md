@@ -60,7 +60,6 @@ import { storyblokInit, apiPlugin } from "@storyblok/js";
 
 const { storyblokApi } = storyblokInit({
   accessToken: "YOUR_ACCESS_TOKEN",
-  bridge: true / false,
   use: [apiPlugin],
 });
 ```
