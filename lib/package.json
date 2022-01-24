@@ -52,11 +52,6 @@
       ]
     ]
   },
-  "eslintConfig": {
-    "env": {
-      "node": true
-    }
-  },
   "jest": {
     "moduleFileExtensions": [
       "js",
@@ -77,7 +72,6 @@
     "url": "https://github.com/storyblok/storyblok-js"
   },
   "author": "Storyblok",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/storyblok/storyblok-js/issues"
   },
