@@ -95,7 +95,7 @@ const { data } = await storyblokApi.get("cdn/stories", { version: "draft" });
 
 #### 2. Listen to Storyblok Visual Editor events
 
-Use `useStoryBridge` to get the new story every time is triggered a `change` event from the Visual Editor. You need to pass the story id as first param, and a callback function as second param to update the new story:
+Use `useStoryblokBridge` to get the new story every time is triggered a `change` event from the Visual Editor. You need to pass the story id as first param, and a callback function as second param to update the new story:
 
 ```js
 import { storyblokInit, apiPlugin, useStoryblokBridge } from "@storyblok/js";
@@ -122,15 +122,26 @@ useStoryblokBridge(story.id, (story) => (state.story = story), {
 
 #### 3. Link your components to Storyblok Visual Editor
 
-For every component you've defined in your Storyblok space, call the `storyblokEditable` function with the blok content:
+To link your app and Storyblok components together will depend on the framework you are using. But, in the end, you must add the `data-blok-c` and `data-blok-uid` attributes, and the `storyblok__outline` class.
+
+We provide you a `storyblokEditable` function to make that easier. As an example, you can check in [@storyblok/vue](https://github.com/storyblok/storyblok-vue/blob/master/lib/index.js#L7-L9) how we use a `v-editable` directive for that:
 
 ```js
 import { storyblokEditable } from "@storyblok/js";
 
-storyblokEditable(blok);
+const vEditableDirective = {
+  bind(el, binding) {
+    if (binding.value) {
+      const options = storyblokEditable(binding.value);
+      el.setAttribute("data-blok-c", options["data-blok-c"]);
+      el.setAttribute("data-blok-uid", options["data-blok-uid"]);
+      el.classList.add("storyblok__outline");
+    }
+  },
+};
 ```
 
-Where `blok` is the actual blok data coming from [Storblok's Content Delivery API](https://www.storyblok.com/docs/api/content-delivery?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js).
+At this point, you'll have your app connected to Storyblok with the real-time editing experience fully enabled.
 
 ### Features and API
 
