@@ -43,7 +43,8 @@
       "prettier"
     ],
     "env": {
-      "browser": true
+      "browser": true,
+      "es6": true
     },
     "ignorePatterns": "dist/",
     "parserOptions": {
