@@ -32,6 +32,8 @@
 
 ## 🚀 Usage
 
+<!--  -->
+
 > If you are first-time user of the Storyblok, read the [Getting Started](https://www.storyblok.com/docs/guide/getting-started?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js) guide to get a project ready in less than 5 minutes.
 
 ### Installation
