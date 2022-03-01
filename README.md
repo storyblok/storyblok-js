@@ -4,7 +4,7 @@
 	</a>
 	<h1 align="center">@storyblok/js</h1>
   <p align="center">
-    The JavaScript plugin you need to interact with <a href="http://www.storyblok.com?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js" target="_blank">Storyblok API</a> and enable the <a href="https://www.storyblok.com/docs/guide/essentials/visual-editor?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js" target="_blank">Real-time Visual Editing Experience</a>.
+    The JavaScript SDK you need to interact with <a href="http://www.storyblok.com?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js" target="_blank">Storyblok API</a> and enable the <a href="https://www.storyblok.com/docs/guide/essentials/visual-editor?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js" target="_blank">Real-time Visual Editing Experience</a>.
   </p>
   <br />
 </div>
