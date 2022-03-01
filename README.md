@@ -41,8 +41,8 @@
 Install `@storyblok/js`:
 
 ```bash
-npm install --save-dev @storyblok/js
-// yarn add -D @storyblok/js
+npm install @storyblok/js
+// yarn add @storyblok/js
 ```
 
 #### From a CDN
