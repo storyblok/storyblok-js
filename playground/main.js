@@ -1,4 +1,4 @@
-import { storyblokInit } from "@storyblok/js";
+import { storyblokInit, loadStoryblokBridge } from "@storyblok/js";
 
 window.initWithBridge = () => {
   storyblokInit({
@@ -11,4 +11,8 @@ window.initWithoutBridge = () => {
     accessToken: "wANpEQEsMYGOwLxwXQ76Ggtt",
     bridge: false,
   });
+};
+
+window.loadStoryblokBridgeScript = () => {
+  loadStoryblokBridge();
 };
