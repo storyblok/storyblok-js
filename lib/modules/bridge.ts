@@ -1,7 +1,7 @@
 let loaded = false;
-const callbacks = [];
+const callbacks: Array<() => void> = [];
 
-export const loadBridge = (src) => {
+export const loadBridge = (src: string) => {
   return new Promise((resolve, reject) => {
     if (typeof window === "undefined") return;
 

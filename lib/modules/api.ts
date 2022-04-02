@@ -1,14 +1,17 @@
-import StoryblokClient from "storyblok-js-client";
+import { StoryblokPlugin } from "../index";
+import StoryblokClient, { StoryblokConfig } from "storyblok-js-client";
 
-export default (options = {}) => {
-  const { apiOptions } = options;
+const apiPlugin: StoryblokPlugin<{
+  storyblokApi: StoryblokClient;
+}> = ({ apiOptions }) => {
   if (!apiOptions.accessToken) {
-    console.error(
+    throw new Error(
       "You need to provide an access token to interact with Storyblok API. Read https://www.storyblok.com/docs/api/content-delivery#topics/authentication"
     );
-    return;
   }
 
   const storyblokApi = new StoryblokClient(apiOptions);
   return { storyblokApi };
 };
+
+export default apiPlugin;

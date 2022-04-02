@@ -1,4 +1,4 @@
-export default (blok) => {
+export default (blok: { _editable: string }) => {
   if (typeof blok !== "object" || typeof blok._editable === "undefined") {
     return {};
   }

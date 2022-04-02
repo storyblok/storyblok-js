@@ -1,5 +1,9 @@
-import { getLog } from "jest-console";
-import { storyblokInit, apiPlugin, storyblokEditable } from "@storyblok/js";
+import {
+  storyblokInit,
+  apiPlugin,
+  storyblokEditable,
+  StoryblokPlugin,
+} from "../index";
 
 describe("@storyblok/js", () => {
   describe("Api", () => {
@@ -22,19 +26,32 @@ describe("@storyblok/js", () => {
       expect(result.length).toBeGreaterThan(0);
     });
 
-    it("Logs an error if no access token is provided", () => {
-      storyblokInit({
-        accessToken: null,
-        apiOptions: { accessToken: null },
-        use: [apiPlugin],
+    it("Is loaded correctly when using apiPlugin and mockPlugin", async () => {
+      const mockPlugin: StoryblokPlugin<{ mock: "plugin" }> = () => ({
+        mock: "plugin",
+      });
+      const { storyblokApi, mock } = storyblokInit({
+        accessToken: "wANpEQEsMYGOwLxwXQ76Ggtt",
+        use: [apiPlugin, mockPlugin],
       });
 
-      expect(getLog().logs).toEqual([
-        [
-          "error",
-          "You need to provide an access token to interact with Storyblok API. Read https://www.storyblok.com/docs/api/content-delivery#topics/authentication",
-        ],
-      ]);
+      expect(mock).toEqual("plugin");
+
+      const result = await storyblokApi.getAll("cdn/stories");
+
+      expect(result.length).toBeGreaterThan(0);
+    });
+
+    it("Logs an error if no access token is provided", () => {
+      expect(() =>
+        storyblokInit({
+          accessToken: undefined,
+          apiOptions: { accessToken: undefined },
+          use: [apiPlugin],
+        })
+      ).toThrowErrorMatchingInlineSnapshot(
+        `"You need to provide an access token to interact with Storyblok API. Read https://www.storyblok.com/docs/api/content-delivery#topics/authentication"`
+      );
     });
   });
 

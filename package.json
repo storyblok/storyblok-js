@@ -50,7 +50,18 @@
     "parserOptions": {
       "sourceType": "module",
       "ecmaVersion": 2018
-    }
+    },
+    "overrides": [
+      {
+        "files": [
+          "**/vite.config.js"
+        ],
+        "env": {
+          "node": true,
+          "browser": false
+        }
+      }
+    ]
   },
   "prettier": {
     "trailingComma": "es5",
