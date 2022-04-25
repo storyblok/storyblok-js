@@ -22,8 +22,8 @@
     "test:e2e": "start-server-and-test cy:playground http-get://localhost:3000/ cy:run",
     "test:e2e-watch": "start-server-and-test cy:playground http-get://localhost:3000/ cy:open",
     "cy:playground": "npm run demo --prefix ../playground",
-    "cy:run": "cypress run --spec 'cypress/integration/*'",
-    "cy:open": "cypress open --spec 'cypress/integration/*'",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open",
     "prepublishOnly": "npm run build && cp ../README.md ./"
   },
   "dependencies": {
