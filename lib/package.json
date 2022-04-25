@@ -1,83 +1,83 @@
 {
-  "name": "@storyblok/js",
-  "version": "0.0.1",
-  "description": "SDK to integrate Storyblok into your project using JavaScript.",
-  "main": "./dist/storyblok-js.js",
-  "module": "./dist/storyblok-js.mjs",
-  "types": "./dist/types/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "exports": {
-    ".": {
-      "import": "./dist/storyblok-js.mjs",
-      "require": "./dist/storyblok-js.js"
-    }
-  },
-  "scripts": {
-    "dev": "vite build --watch",
-    "build": "vite build && tsc --project tsconfig.json",
-    "test": "npm run test:unit && npm run test:e2e",
-    "test:unit": "jest __tests__",
-    "test:e2e": "start-server-and-test cy:playground http-get://localhost:3000/ cy:run",
-    "test:e2e-watch": "start-server-and-test cy:playground http-get://localhost:3000/ cy:open",
-    "cy:playground": "npm run demo --prefix ../playground",
-    "cy:run": "cypress run --spec 'cypress/integration/*'",
-    "cy:open": "cypress open --spec 'cypress/integration/*'",
-    "prepublishOnly": "npm run build && cp ../README.md ./"
-  },
-  "dependencies": {
-    "storyblok-js-client": "^4.2.0"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.15.0",
-    "@babel/preset-env": "^7.16.11",
-    "@tsconfig/recommended": "^1.0.1",
-    "babel-jest": "^26.6.3",
-    "cypress": "^8.3.0",
-    "eslint-plugin-cypress": "^2.12.1",
-    "eslint-plugin-jest": "^25.2.4",
-    "jest": "^26.6.3",
-    "jest-console": "^0.1.0",
-    "start-server-and-test": "^1.14.0",
-    "vite": "^2.4.4"
-  },
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "targets": {
-            "node": "current"
-          }
-        }
-      ]
-    ]
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "json"
+    "name": "@storyblok/js",
+    "version": "0.0.1",
+    "description": "SDK to integrate Storyblok into your project using JavaScript.",
+    "main": "./dist/storyblok-js.js",
+    "module": "./dist/storyblok-js.mjs",
+    "types": "./dist/types/index.d.ts",
+    "files": [
+        "dist"
     ],
-    "transform": {
-      "^.+\\.js$": "babel-jest"
+    "exports": {
+        ".": {
+            "import": "./dist/storyblok-js.mjs",
+            "require": "./dist/storyblok-js.js"
+        }
+    },
+    "scripts": {
+        "dev": "vite build --watch",
+        "build": "vite build && tsc --project tsconfig.json",
+        "test": "npm run test:unit && npm run test:e2e",
+        "test:unit": "jest __tests__",
+        "test:e2e": "start-server-and-test cy:playground http-get://localhost:3000/ cy:run",
+        "test:e2e-watch": "start-server-and-test cy:playground http-get://localhost:3000/ cy:open",
+        "cy:playground": "npm run demo --prefix ../playground",
+        "cy:run": "cypress run --spec 'cypress/integration/*'",
+        "cy:open": "cypress open --spec 'cypress/integration/*'",
+        "prepublishOnly": "npm run build && cp ../README.md ./"
+    },
+    "dependencies": {
+        "storyblok-js-client": "^4.2.0"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.15.0",
+        "@babel/preset-env": "^7.16.11",
+        "@tsconfig/recommended": "^1.0.1",
+        "babel-jest": "^26.6.3",
+        "cypress": "^9.5.4",
+        "eslint-plugin-cypress": "^2.12.1",
+        "eslint-plugin-jest": "^25.2.4",
+        "jest": "^26.6.3",
+        "jest-console": "^0.1.0",
+        "start-server-and-test": "^1.14.0",
+        "vite": "^2.9.5"
+    },
+    "babel": {
+        "presets": [
+            [
+                "@babel/preset-env",
+                {
+                    "targets": {
+                        "node": "current"
+                    }
+                }
+            ]
+        ]
+    },
+    "jest": {
+        "moduleFileExtensions": [
+            "js",
+            "json"
+        ],
+        "transform": {
+            "^.+\\.js$": "babel-jest"
+        }
+    },
+    "release": {
+        "branches": [
+            "main"
+        ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/storyblok/storyblok-js"
+    },
+    "author": "Storyblok",
+    "bugs": {
+        "url": "https://github.com/storyblok/storyblok-js/issues"
+    },
+    "homepage": "https://github.com/storyblok/storyblok-js",
+    "publishConfig": {
+        "access": "public"
     }
-  },
-  "release": {
-    "branches": [
-      "main"
-    ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/storyblok/storyblok-js"
-  },
-  "author": "Storyblok",
-  "bugs": {
-    "url": "https://github.com/storyblok/storyblok-js/issues"
-  },
-  "homepage": "https://github.com/storyblok/storyblok-js",
-  "publishConfig": {
-    "access": "public"
-  }
 }
