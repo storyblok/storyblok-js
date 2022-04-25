@@ -1,12 +1,12 @@
 let loaded = false;
 const callbacks = [];
 
-export const loadBridge = (src) => {
+export const loadBridge = (src: string) => {
   return new Promise((resolve, reject) => {
     if (typeof window === "undefined") return;
 
     // Way to make sure all event handlers are called after loading
-    window.storyblokRegisterEvent = (cb) => {
+    window.storyblokRegisterEvent = (cb: Function) => {
       if (window.location === window.parent.location) {
         console.warn("You are not in Draft Mode or in the Visual Editor.");
         return;

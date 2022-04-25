@@ -25,7 +25,7 @@
     "prettier": "^2.4.1"
   },
   "lint-staged": {
-    "*.{vue,svelte,js,jsx,css}": [
+    "*.{vue,svelte,js,jsx,css,ts,tsx}": [
       "prettier --write",
       "eslint"
     ],

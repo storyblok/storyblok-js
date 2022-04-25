@@ -1,18 +1,7 @@
 import { loadBridge } from "./modules/bridge";
+import { SDKOptions } from "./types";
 
-declare global {
-  interface Window {
-    storyblokRegisterEvent: any;
-    StoryblokBridge: any;
-  }
-}
-
-interface SDKOptions {
-  bridge?: any;
-  accessToken?: any;
-  use?: [];
-  apiOptions?: any;
-}
+export * from "./types";
 
 const bridgeLatest = "https://app.storyblok.com/f/storyblok-v2-latest.js";
 
@@ -50,7 +39,7 @@ export const useStoryblokBridge = (id, cb, options = {}) => {
 export { default as apiPlugin } from "./modules/api";
 export { default as storyblokEditable } from "./modules/editable";
 
-export const storyblokInit = (pluginOptions:SDKOptions = {}) => {
+export const storyblokInit = (pluginOptions: SDKOptions = {}) => {
   const { bridge, accessToken, use = [], apiOptions = {} } = pluginOptions;
 
   apiOptions.accessToken = apiOptions.accessToken || accessToken;
@@ -71,7 +60,7 @@ export const storyblokInit = (pluginOptions:SDKOptions = {}) => {
   return result;
 };
 
-// export const getStoryblokApi() :  => 
+// export const getStoryblokApi() :  =>
 
 export const loadStoryblokBridge = () => {
   return loadBridge(bridgeLatest);

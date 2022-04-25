@@ -1,4 +1,6 @@
-export default (blok) => {
+import { BlokData } from "../types";
+
+export default (blok: BlokData) => {
   if (typeof blok !== "object" || typeof blok._editable === "undefined") {
     return {};
   }
