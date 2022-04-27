@@ -5,10 +5,6 @@ import {
   StoryblokBridgeV2,
 } from "./types";
 
-// Reexport all types so users can have access to them
-export * from "./types";
-export * from "storyblok-js-client/types";
-
 const bridgeLatest = "https://app.storyblok.com/f/storyblok-v2-latest.js";
 
 export const useStoryblokBridge = (
@@ -69,8 +65,25 @@ export const storyblokInit = (pluginOptions: SbSDKOptions = {}) => {
   return result;
 };
 
-// export const getStoryblokApi() :  =>
-
 export const loadStoryblokBridge = () => {
   return loadBridge(bridgeLatest);
 };
+
+// Reexport all types so users can have access to them
+export * from "./types";
+export type {
+  StoryblokConfig,
+  StoryblokCache,
+  StoryblokCacheProvider,
+  StoryblokResult,
+  StoryblokManagmentApiResult,
+  StoryblokComponent,
+  StoryData,
+  AlternateObject,
+  Stories,
+  Story,
+  StoriesParams,
+  StoryParams,
+  Richtext,
+  RichtextInstance,
+} from "storyblok-js-client";
