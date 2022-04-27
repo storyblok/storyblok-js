@@ -1,7 +1,7 @@
 {
   "name": "@storyblok/js-workspace",
-  "version": "0.0.1",
   "license": "MIT",
+  "version": "1.2.0",
   "workspaces": [
     "./lib",
     "./playground"
