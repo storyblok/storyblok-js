@@ -1,11 +1,21 @@
 import { loadBridge } from "./modules/bridge";
-import { SDKOptions } from "./types";
+import {
+  SbSDKOptions,
+  StoryblokBridgeConfigV2,
+  StoryblokBridgeV2,
+} from "./types";
 
+// Reexport all types so users can have access to them
 export * from "./types";
+export * from "storyblok-js-client/types";
 
 const bridgeLatest = "https://app.storyblok.com/f/storyblok-v2-latest.js";
 
-export const useStoryblokBridge = (id, cb, options = {}) => {
+export const useStoryblokBridge = (
+  id: Number,
+  cb: Function,
+  options: StoryblokBridgeConfigV2 = {}
+) => {
   if (typeof window === "undefined") {
     return;
   }
@@ -24,8 +34,7 @@ export const useStoryblokBridge = (id, cb, options = {}) => {
   }
 
   window.storyblokRegisterEvent(() => {
-    const sbBridge = new window.StoryblokBridge(options);
-
+    const sbBridge: StoryblokBridgeV2 = new window.StoryblokBridge(options);
     sbBridge.on(["input", "published", "change"], (event) => {
       if (event.action == "input" && event.story.id === id) {
         cb(event.story);
@@ -39,7 +48,7 @@ export const useStoryblokBridge = (id, cb, options = {}) => {
 export { default as apiPlugin } from "./modules/api";
 export { default as storyblokEditable } from "./modules/editable";
 
-export const storyblokInit = (pluginOptions: SDKOptions = {}) => {
+export const storyblokInit = (pluginOptions: SbSDKOptions = {}) => {
   const { bridge, accessToken, use = [], apiOptions = {} } = pluginOptions;
 
   apiOptions.accessToken = apiOptions.accessToken || accessToken;

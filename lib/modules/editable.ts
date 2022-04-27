@@ -1,6 +1,6 @@
-import { BlokData } from "../types";
+import { SbBlokData } from "../types";
 
-export default (blok: BlokData) => {
+export default (blok: SbBlokData) => {
   if (typeof blok !== "object" || typeof blok._editable === "undefined") {
     return {};
   }
