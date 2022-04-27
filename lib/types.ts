@@ -7,8 +7,10 @@ declare global {
   }
 }
 
+export type SbBlokKeyDataTypes = string | number | object;
+
 export interface SbBlokData extends StoryblokComponent<string> {
-  [index: string]: any;
+  [index: string]: SbBlokKeyDataTypes;
 }
 
 export interface SbSDKOptions {
@@ -41,3 +43,20 @@ export interface StoryblokBridgeV2 {
     callback: (payload?: StoryblokEventPayload) => void
   ) => void;
 }
+
+export type {
+  StoryblokConfig,
+  StoryblokCache,
+  StoryblokCacheProvider,
+  StoryblokResult,
+  StoryblokManagmentApiResult,
+  StoryblokComponent,
+  StoryData,
+  AlternateObject,
+  Stories,
+  Story,
+  StoriesParams,
+  StoryParams,
+  Richtext,
+  RichtextInstance,
+} from "storyblok-js-client";

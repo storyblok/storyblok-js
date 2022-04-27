@@ -3,13 +3,14 @@ import {
   SbSDKOptions,
   StoryblokBridgeConfigV2,
   StoryblokBridgeV2,
+  StoryData,
 } from "./types";
 
 const bridgeLatest = "https://app.storyblok.com/f/storyblok-v2-latest.js";
 
 export const useStoryblokBridge = (
   id: Number,
-  cb: Function,
+  cb: (newStory: StoryData) => void,
   options: StoryblokBridgeConfigV2 = {}
 ) => {
   if (typeof window === "undefined") {
@@ -71,19 +72,3 @@ export const loadStoryblokBridge = () => {
 
 // Reexport all types so users can have access to them
 export * from "./types";
-export type {
-  StoryblokConfig,
-  StoryblokCache,
-  StoryblokCacheProvider,
-  StoryblokResult,
-  StoryblokManagmentApiResult,
-  StoryblokComponent,
-  StoryData,
-  AlternateObject,
-  Stories,
-  Story,
-  StoriesParams,
-  StoryParams,
-  Richtext,
-  RichtextInstance,
-} from "storyblok-js-client";
