@@ -16,6 +16,9 @@
   <a href="https://npmjs.com/package/@storyblok/js" rel="nofollow">
     <img src="https://img.shields.io/npm/dt/@storyblok/js.svg?style=flat-square" alt="npm">
   </a>
+  <a href="https://github.com/storyblok/storyblok-js/blob/main/LICENSE.txt" rel="nofollow">
+    <img src="https://img.shields.io/github/license/storyblok/storyblok-js?style=flat-square" alt="MIT License">
+  </a>
 </p>
 
 <p align="center">
@@ -207,3 +210,7 @@ sbBridge.on(["input", "published", "change"], (event) => {
 
 Please see our [contributing guidelines](https://github.com/storyblok/.github/blob/main/contributing.md) and our [code of conduct](https://www.storyblok.com/trust-center#code-of-conduct?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js).
 This project use [semantic-release](https://semantic-release.gitbook.io/semantic-release/) for generate new versions by using commit messages and we use the Angular Convention to naming the commits. Check [this question](https://semantic-release.gitbook.io/semantic-release/support/faq#how-can-i-change-the-type-of-commits-that-trigger-a-release) about it in semantic-release FAQ.
+
+### License
+
+MIT. See [`LICENSE.txt`](./LICENSE.txt) for more details.
