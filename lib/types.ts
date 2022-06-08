@@ -1,7 +1,9 @@
-import StoryblokClient, {
+import StoryblokJSClient, {
   StoryblokConfig,
   StoryblokComponent,
 } from "storyblok-js-client";
+
+export type StoryblokClient = typeof StoryblokJSClient;
 
 declare global {
   interface Window {
