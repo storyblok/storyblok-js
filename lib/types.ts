@@ -58,7 +58,7 @@ export type {
   StoryblokCacheProvider,
   StoryblokResult,
   StoryblokManagmentApiResult,
-  StoryblokComponent,
+  StoryblokComponent as StoryblokComponentType,
   StoryData,
   AlternateObject,
   Stories,
