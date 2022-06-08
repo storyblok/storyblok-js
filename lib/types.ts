@@ -1,4 +1,7 @@
-import { StoryblokConfig, StoryblokComponent } from "storyblok-js-client";
+import StoryblokClient, {
+  StoryblokConfig,
+  StoryblokComponent,
+} from "storyblok-js-client";
 
 declare global {
   interface Window {
@@ -7,6 +10,11 @@ declare global {
   }
 }
 
+export interface SbInitResult {
+  storyblokApi?: StoryblokClient;
+}
+
+export type SbPluginFactory = (options: SbSDKOptions) => any;
 export type SbBlokKeyDataTypes = string | number | object;
 
 export interface SbBlokData extends StoryblokComponent<string> {
@@ -16,7 +24,7 @@ export interface SbBlokData extends StoryblokComponent<string> {
 export interface SbSDKOptions {
   bridge?: boolean;
   accessToken?: string;
-  use?: [];
+  use?: [any];
   apiOptions?: StoryblokConfig;
 }
 

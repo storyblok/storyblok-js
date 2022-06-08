@@ -4,6 +4,7 @@ import {
   StoryblokBridgeConfigV2,
   StoryblokBridgeV2,
   StoryData,
+  SbInitResult,
 } from "./types";
 
 const bridgeLatest = "https://app.storyblok.com/f/storyblok-v2-latest.js";
@@ -52,7 +53,7 @@ export const storyblokInit = (pluginOptions: SbSDKOptions = {}) => {
 
   // Initialize plugins
   const options = { bridge, apiOptions };
-  let result = {};
+  let result: SbInitResult = {};
 
   use.forEach((pluginFactory: Function) => {
     result = { ...result, ...pluginFactory(options) };

@@ -1,7 +1,7 @@
 import StoryblokClient, { StoryblokConfig } from "storyblok-js-client";
-import { SbSDKOptions } from "../types";
+import { SbSDKOptions, SbPluginFactory } from "../types";
 
-export default (options: SbSDKOptions = {}) => {
+const apiFactory: SbPluginFactory = (options = {}) => {
   const { apiOptions } = options;
 
   if (!apiOptions.accessToken) {
@@ -14,3 +14,5 @@ export default (options: SbSDKOptions = {}) => {
   const storyblokApi = new StoryblokClient(apiOptions);
   return { storyblokApi };
 };
+
+export default apiFactory;
