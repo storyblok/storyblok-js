@@ -73,3 +73,4 @@ export const loadStoryblokBridge = () => {
 
 // Reexport all types so users can have access to them
 export * from "./types";
+export { default as StoryblokClient } from "storyblok-js-client";
