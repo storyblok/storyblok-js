@@ -3,7 +3,7 @@ import StoryblokJSClient, {
   StoryblokComponent,
 } from "storyblok-js-client";
 
-export type StoryblokClient = typeof StoryblokJSClient;
+export type StoryblokClient = StoryblokJSClient;
 
 declare global {
   interface Window {
