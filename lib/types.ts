@@ -5,18 +5,26 @@ import StoryblokJSClient, {
 
 export type StoryblokClient = StoryblokJSClient;
 
+export type SbFunction<
+  Args extends unknown[] = [unknown],
+  ReturnValue = void
+> = (...args: Args) => ReturnValue;
+
+export type SbPluginFactory = SbFunction<[SbPluginOptions], SbPluginInitResult>;
+
 declare global {
   interface Window {
-    storyblokRegisterEvent: (cb: Function) => void;
-    StoryblokBridge: (options?: StoryblokBridgeConfigV2) => void;
+    storyblokRegisterEvent: (cb: SbFunction<never>) => void;
+    StoryblokBridge: {
+      new (options?: StoryblokBridgeConfigV2): StoryblokBridgeV2;
+    };
   }
 }
 
-export interface SbInitResult {
+export interface SbPluginInitResult {
   storyblokApi?: StoryblokClient;
 }
 
-export type SbPluginFactory = (options: SbSDKOptions) => any;
 export type SbBlokKeyDataTypes = string | number | object;
 
 export interface SbBlokData extends StoryblokComponent<string> {
@@ -26,7 +34,7 @@ export interface SbBlokData extends StoryblokComponent<string> {
 export interface SbSDKOptions {
   bridge?: boolean;
   accessToken?: string;
-  use?: [any];
+  use?: SbPluginFactory[];
   apiOptions?: StoryblokConfig;
 }
 
@@ -37,21 +45,27 @@ export interface StoryblokBridgeConfigV2 {
   preventClicks?: boolean;
 }
 
+export type StoryblokEvent =
+  | "customEvent"
+  | "published"
+  | "input"
+  | "change"
+  | "unpublished"
+  | "enterEditmode";
+
 export interface StoryblokBridgeV2 {
-  pingEditor: (event: any) => void;
+  pingEditor: (event: unknown) => void;
   isInEditor: () => boolean;
   enterEditmode: () => void;
   on: (
-    event:
-      | "customEvent"
-      | "published"
-      | "input"
-      | "change"
-      | "unpublished"
-      | "enterEditmode"
-      | string[],
+    event: StoryblokEvent | StoryblokEvent[],
     callback: (payload?: StoryblokEventPayload) => void
   ) => void;
+}
+
+export interface SbPluginOptions {
+  bridge: boolean;
+  apiOptions: StoryblokConfig;
 }
 
 export type {

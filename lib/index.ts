@@ -1,16 +1,18 @@
 import { loadBridge } from "./modules/bridge";
 import {
-  SbSDKOptions,
   StoryblokBridgeConfigV2,
   StoryblokBridgeV2,
   StoryData,
-  SbInitResult,
+  SbSDKOptions,
+  SbPluginInitResult,
+  SbPluginOptions,
+  SbPluginFactory,
 } from "./types";
 
 const bridgeLatest = "https://app.storyblok.com/f/storyblok-v2-latest.js";
 
 export const useStoryblokBridge = (
-  id: Number,
+  id: number,
   cb: (newStory: StoryData) => void,
   options: StoryblokBridgeConfigV2 = {}
 ) => {
@@ -52,10 +54,10 @@ export const storyblokInit = (pluginOptions: SbSDKOptions = {}) => {
   apiOptions.accessToken = apiOptions.accessToken || accessToken;
 
   // Initialize plugins
-  const options = { bridge, apiOptions };
-  let result: SbInitResult = {};
+  const options: SbPluginOptions = { bridge, apiOptions };
+  let result: SbPluginInitResult = {};
 
-  use.forEach((pluginFactory: Function) => {
+  use.forEach((pluginFactory: SbPluginFactory) => {
     result = { ...result, ...pluginFactory(options) };
   });
 
