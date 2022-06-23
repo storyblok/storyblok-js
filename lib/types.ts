@@ -25,7 +25,7 @@ export interface SbPluginInitResult {
   storyblokApi?: StoryblokClient;
 }
 
-export type SbBlokKeyDataTypes = string | number | object;
+export type SbBlokKeyDataTypes = string | number | object | undefined;
 
 export interface SbBlokData extends StoryblokComponent<string> {
   [index: string]: SbBlokKeyDataTypes;
