@@ -18,11 +18,14 @@
     "@commitlint/cli": "^14.1.0",
     "@commitlint/config-conventional": "^17.0.0",
     "@tsconfig/recommended": "^1.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.29.0",
+    "@typescript-eslint/parser": "^5.29.0",
     "eslint": "^8.15.0",
     "eslint-config-prettier": "^8.5.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.4.1",
-    "prettier": "^2.6.2"
+    "prettier": "^2.6.2",
+    "typescript": "^4.7.4"
   },
   "lint-staged": {
     "*.{vue,svelte,js,jsx,css,ts,tsx}": [
@@ -39,9 +42,14 @@
     ]
   },
   "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
     "extends": [
       "eslint:recommended",
-      "prettier"
+      "prettier",
+      "plugin:@typescript-eslint/recommended"
     ],
     "env": {
       "browser": true,
