@@ -40,7 +40,7 @@ export interface SbSDKOptions {
 
 // TODO: temporary till the right bridge types are updated on storyblok-js-client
 export interface StoryblokBridgeConfigV2 {
-  resolveRelations?: [string];
+  resolveRelations?: string[];
   customParent?: string;
   preventClicks?: boolean;
 }
