@@ -9,9 +9,9 @@ import {
 
 const bridgeLatest = "https://app.storyblok.com/f/storyblok-v2-latest.js";
 
-export const useStoryblokBridge = (
+export const useStoryblokBridge = <T = void>(
   id: Number,
-  cb: (newStory: StoryData) => void,
+  cb: (newStory: StoryData<T>) => void,
   options: StoryblokBridgeConfigV2 = {}
 ) => {
   if (typeof window === "undefined") {
