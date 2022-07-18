@@ -26,13 +26,13 @@ export interface SbBlokData extends StoryblokComponent<string> {
 export interface SbSDKOptions {
   bridge?: boolean;
   accessToken?: string;
-  use?: [any];
+  use?: any[];
   apiOptions?: StoryblokConfig;
 }
 
 // TODO: temporary till the right bridge types are updated on storyblok-js-client
 export interface StoryblokBridgeConfigV2 {
-  resolveRelations?: [string];
+  resolveRelations?: string[];
   customParent?: string;
   preventClicks?: boolean;
 }
