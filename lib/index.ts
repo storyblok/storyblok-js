@@ -5,7 +5,10 @@ import {
   StoryblokBridgeV2,
   StoryData,
   SbInitResult,
+  Richtext,
 } from "./types";
+
+import RichTextResolver from "storyblok-js-client/source/RichTextResolver"
 
 const bridgeLatest = "https://app.storyblok.com/f/storyblok-v2-latest.js";
 
@@ -66,6 +69,12 @@ export const storyblokInit = (pluginOptions: SbSDKOptions = {}) => {
 
   return result;
 };
+
+export const renderRichText = (text: Richtext) => {
+  const resolver = new RichTextResolver;
+
+  return resolver.render(text);
+}
 
 export const loadStoryblokBridge = () => {
   return loadBridge(bridgeLatest);
