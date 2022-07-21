@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@storyblok/js Rich Text Resolver should return and empty string and warn in console when it's a falsy value 1`] = `
+Array [
+  Array [
+    "warn",
+    "null is not a valid Richtext object. That might be because the value of the richtext field is empty.
+    
+  For more info about the richtext object check https://github.com/storyblok/storyblok-js#rendering-rich-text",
+  ],
+]
+`;
+
+exports[`@storyblok/js Rich Text Resolver should return the rendered HTML when passing a RichText object 1`] = `"<p>Experiamur igitur, inquit, etsi habet haec Stoicorum ratio difficilius quiddam et obscurius. Non enim iam stirpis bonum quaeret, sed animalis. <b>Quia dolori non voluptas contraria est, sed doloris privatio.</b> Quis enim confidit semper sibi illud stabile et firmum permansurum, quod fragile et caducum sit? Stuprata per vim Lucretia a regis filio testata civis se ipsa interemit. Hic ambiguo ludimur.</p>"`;

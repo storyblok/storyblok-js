@@ -10,6 +10,8 @@ import {
 
 import RichTextResolver from "storyblok-js-client/source/RichTextResolver"
 
+const resolver = new RichTextResolver;
+
 const bridgeLatest = "https://app.storyblok.com/f/storyblok-v2-latest.js";
 
 export const useStoryblokBridge = <T = void>(
@@ -70,15 +72,20 @@ export const storyblokInit = (pluginOptions: SbSDKOptions = {}) => {
   return result;
 };
 
-export const renderRichText = (text: Richtext) => {
-  const resolver = new RichTextResolver;
-
-  return resolver.render(text);
+export const renderRichText = (text: Richtext) : string => {
+  if (text as any === '') {
+    return ""
+  }
+  else if(!text) {
+    console.warn(`${text} is not a valid Richtext object. This might be because the value of the richtext field is empty.
+    
+  For more info about the richtext object check https://github.com/storyblok/storyblok-js#rendering-rich-text`)
+    return ""; 
+  }
+  return resolver.render(text)
 }
 
-export const loadStoryblokBridge = () => {
-  return loadBridge(bridgeLatest);
-};
+export const loadStoryblokBridge = () => loadBridge(bridgeLatest)
 
 // Reexport all types so users can have access to them
 export * from "./types";
