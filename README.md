@@ -192,7 +192,7 @@ sbBridge.on(["input", "published", "change"], (event) => {
 
 #### Rendering Rich Text
 
-You can easily render rich text by using the `richTextResolver` function that comes with `@storyblok/js`:
+You can easily render rich text by using the `renderRichText` function that comes with `@storyblok/js`:
 
 ```js
 import { renderRichText } from "@storyblok/js";
