@@ -8,7 +8,7 @@ export type StoryblokClient = StoryblokJSClient;
 declare global {
   interface Window {
     storyblokRegisterEvent: (cb: Function) => void;
-    StoryblokBridge: (options?: StoryblokBridgeConfigV2) => void;
+    StoryblokBridge: { new (options?: StoryblokBridgeConfigV2): StoryblokBridgeV2 } ;
   }
 }
 
