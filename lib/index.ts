@@ -5,11 +5,12 @@ import {
   StoryblokBridgeV2,
   StoryData,
   SbInitResult,
+  StoryblokComponentType
 } from "./types";
 
 const bridgeLatest = "https://app.storyblok.com/f/storyblok-v2-latest.js";
 
-export const useStoryblokBridge = <T = void>(
+export const useStoryblokBridge = <T extends StoryblokComponentType<string> = any>(
   id: Number,
   cb: (newStory: StoryData<T>) => void,
   options: StoryblokBridgeConfigV2 = {}
