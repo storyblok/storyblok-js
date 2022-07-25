@@ -9,7 +9,7 @@ import {
   StoryblokComponentType
 } from "./types";
 
-import RichTextResolver from "storyblok-js-client/source/RichTextResolver"
+import RichTextResolver from "storyblok-js-client/source/richTextResolver"
 
 const resolver = new RichTextResolver;
 
