@@ -1,4 +1,5 @@
-import { storyblokInit, loadStoryblokBridge } from "@storyblok/js";
+import { storyblokInit, loadStoryblokBridge, renderRichText } from "@storyblok/js";
+import richTextFixture from "../lib/fixtures/richTextObject.json";
 
 declare global {
   interface Window {
@@ -24,3 +25,10 @@ window.initWithoutBridge = () => {
 window.loadStoryblokBridgeScript = () => {
   loadStoryblokBridge();
 };
+
+
+const renderedRichText = renderRichText(richTextFixture);
+
+const richTextContainer = document.getElementById('rich-text-container');
+
+richTextContainer?.insertAdjacentHTML('afterbegin', renderedRichText);

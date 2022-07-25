@@ -190,6 +190,16 @@ sbBridge.on(["input", "published", "change"], (event) => {
 });
 ```
 
+#### Rendering Rich Text
+
+You can easily render rich text by using the `renderRichText` function that comes with `@storyblok/js`:
+
+```js
+import { renderRichText } from "@storyblok/js";
+
+const renderedRichText = renderRichText(blok.richtext);
+```
+
 ## 🔗 Related Links
 
 - **[Storyblok Technology Hub](https://www.storyblok.com/technologies?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js)**: Storyblok integrates with every framework so that you are free to choose the best fit for your project. We prepared the technology hub so that you can find selected beginner tutorials, videos, boilerplates, and even cheatsheets all in one place.
