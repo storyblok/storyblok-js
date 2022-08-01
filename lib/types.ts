@@ -35,6 +35,7 @@ export interface StoryblokBridgeConfigV2 {
   resolveRelations?: string[];
   customParent?: string;
   preventClicks?: boolean;
+  language?: string;
 }
 
 export interface StoryblokBridgeV2 {
