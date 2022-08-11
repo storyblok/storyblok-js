@@ -6,16 +6,18 @@ import {
   StoryData,
   SbInitResult,
   Richtext,
-  StoryblokComponentType
+  StoryblokComponentType,
 } from "./types";
 
-import RichTextResolver from "storyblok-js-client/source/richTextResolver"
+import RichTextResolver from "storyblok-js-client/source/richTextResolver";
 
-const resolver = new RichTextResolver;
+const resolver = new RichTextResolver();
 
 const bridgeLatest = "https://app.storyblok.com/f/storyblok-v2-latest.js";
 
-export const useStoryblokBridge = <T extends StoryblokComponentType<string> = any>(
+export const useStoryblokBridge = <
+  T extends StoryblokComponentType<string> = any
+>(
   id: Number,
   cb: (newStory: StoryData<T>) => void,
   options: StoryblokBridgeConfigV2 = {}
@@ -40,10 +42,9 @@ export const useStoryblokBridge = <T extends StoryblokComponentType<string> = an
   window.storyblokRegisterEvent(() => {
     const sbBridge: StoryblokBridgeV2 = new window.StoryblokBridge(options);
     sbBridge.on(["input", "published", "change"], (event) => {
-      if (event.action == "input" && event.story.id === id) {
-        cb(event.story);
-      } else {
-        window.location.reload();
+      if (event.story.id === id) {
+        if (event.action === "input") cb(event.story);
+        else window.location.reload();
       }
     });
   });
@@ -73,20 +74,19 @@ export const storyblokInit = (pluginOptions: SbSDKOptions = {}) => {
   return result;
 };
 
-export const renderRichText = (text: Richtext) : string => {
-  if (text as any === '') {
-    return ""
-  }
-  else if(!text) {
+export const renderRichText = (text: Richtext): string => {
+  if ((text as any) === "") {
+    return "";
+  } else if (!text) {
     console.warn(`${text} is not a valid Richtext object. This might be because the value of the richtext field is empty.
     
-  For more info about the richtext object check https://github.com/storyblok/storyblok-js#rendering-rich-text`)
-    return ""; 
+  For more info about the richtext object check https://github.com/storyblok/storyblok-js#rendering-rich-text`);
+    return "";
   }
-  return resolver.render(text)
-}
+  return resolver.render(text);
+};
 
-export const loadStoryblokBridge = () => loadBridge(bridgeLatest)
+export const loadStoryblokBridge = () => loadBridge(bridgeLatest);
 
 // Reexport all types so users can have access to them
 export * from "./types";
