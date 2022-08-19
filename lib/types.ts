@@ -8,7 +8,9 @@ export type StoryblokClient = StoryblokJSClient;
 declare global {
   interface Window {
     storyblokRegisterEvent: (cb: Function) => void;
-    StoryblokBridge: { new (options?: StoryblokBridgeConfigV2): StoryblokBridgeV2 } ;
+    StoryblokBridge: {
+      new (options?: StoryblokBridgeConfigV2): StoryblokBridgeV2;
+    };
   }
 }
 
@@ -22,12 +24,16 @@ export type SbBlokKeyDataTypes = string | number | object | boolean;
 export interface SbBlokData extends StoryblokComponent<string> {
   [index: string]: SbBlokKeyDataTypes;
 }
-
+export interface SbRichTextOptions {
+  schema?: StoryblokConfig["richTextSchema"];
+  resolver?: StoryblokConfig["componentResolver"];
+}
 export interface SbSDKOptions {
   bridge?: boolean;
   accessToken?: string;
   use?: any[];
   apiOptions?: StoryblokConfig;
+  richText?: SbRichTextOptions;
 }
 
 // TODO: temporary till the right bridge types are updated on storyblok-js-client

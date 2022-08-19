@@ -200,6 +200,51 @@ import { renderRichText } from "@storyblok/js";
 const renderedRichText = renderRichText(blok.richtext);
 ```
 
+You can set a **custom Schema and component resolver globally** at init time by using the `richText` init option:
+
+```js
+import { richTextSchema, storyblokInit } from "@storyblok/js";
+
+const mySchema = deepClone(richTextSchema) // you can make a copy of the default richTextSchema
+// ... and edit the nodes and marks, or add your own.
+// Check the base richTextSchema source here https://github.com/storyblok/storyblok-js-client/blob/master/source/schema.js
+
+storyblokInit({
+  accessToken: "<your-token>"
+  richText: {
+    schema: mySchema,
+    resolver: (component, blok) => {
+      switch (component) {
+        case "my-custom-component":
+          return `<div class="my-component-class">${blok.text}</div>`;
+          break;
+        default:
+          return "Resolver not defined";
+      }
+    }
+  }
+})
+```
+
+You can also set a **custom Schema and component resolver only once** by passing the options as the second parameter to `renderRichText` function:
+
+```js
+import { renderRichText } from "@storyblok/js";
+
+renderRichText(blok.richTextField, {
+  schema: mySchema,
+  resolver: (component, blok) => {
+    switch (component) {
+      case "my-custom-component":
+        return `<div class="my-component-class">${blok.text}</div>`;
+        break;
+      default:
+        return `Component ${component} not found`;
+    }
+  },
+});
+```
+
 ## 🔗 Related Links
 
 - **[Storyblok Technology Hub](https://www.storyblok.com/technologies?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js)**: Storyblok integrates with every framework so that you are free to choose the best fit for your project. We prepared the technology hub so that you can find selected beginner tutorials, videos, boilerplates, and even cheatsheets all in one place.
