@@ -105,7 +105,6 @@ export const renderRichText = (
   data: Richtext,
   options?: SbRichTextOptions
 ): string => {
-  console.log(data);
   if (!richTextResolver) {
     console.error(
       "Please initialize the Storyblok SDK before calling the renderRichText function"
