@@ -125,7 +125,9 @@ export const renderRichText = (
   let localResolver = richTextResolver;
   if (options) {
     localResolver = new RichTextResolver(options.schema);
-    if (options.resolver) setComponentResolver(localResolver, options.resolver);
+    if (options.resolver) {
+      setComponentResolver(localResolver, options.resolver);
+    }
   }
 
   return localResolver.render(data);
