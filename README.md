@@ -204,26 +204,26 @@ You can set a **custom Schema and component resolver globally** at init time by 
 
 ```js
 import { richTextSchema, storyblokInit } from "@storyblok/js";
+import cloneDeep from "clone-deep";
 
-const mySchema = deepClone(richTextSchema) // you can make a copy of the default richTextSchema
+const mySchema = cloneDeep(richTextSchema); // you can make a copy of the default richTextSchema
 // ... and edit the nodes and marks, or add your own.
 // Check the base richTextSchema source here https://github.com/storyblok/storyblok-js-client/blob/master/source/schema.js
 
 storyblokInit({
-  accessToken: "<your-token>"
+  accessToken: "<your-token>",
   richText: {
     schema: mySchema,
     resolver: (component, blok) => {
       switch (component) {
         case "my-custom-component":
           return `<div class="my-component-class">${blok.text}</div>`;
-          break;
         default:
           return "Resolver not defined";
       }
-    }
-  }
-})
+    },
+  },
+});
 ```
 
 You can also set a **custom Schema and component resolver only once** by passing the options as the second parameter to `renderRichText` function:
