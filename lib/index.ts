@@ -81,8 +81,9 @@ export const storyblokInit = (pluginOptions: SbSDKOptions = {}) => {
 
   // Rich Text resolver
   richTextResolver = new RichTextResolver(richText.schema);
-  if (richText.resolver)
+  if (richText.resolver) {
     setComponentResolver(richTextResolver, richText.resolver);
+  }
 
   return result;
 };
@@ -124,7 +125,9 @@ export const renderRichText = (
   let localResolver = richTextResolver;
   if (options) {
     localResolver = new RichTextResolver(options.schema);
-    if (options.resolver) setComponentResolver(localResolver, options.resolver);
+    if (options.resolver) {
+      setComponentResolver(localResolver, options.resolver);
+    }
   }
 
   return localResolver.render(data);
