@@ -7,11 +7,13 @@ import {
   SbInitResult,
   Richtext,
   StoryblokComponentType,
+  SbRichTextOptions,
 } from "./types";
 
 import RichTextResolver from "storyblok-js-client/source/richTextResolver";
+export { default as RichTextSchema } from "storyblok-js-client/source/schema";
 
-const resolver = new RichTextResolver();
+let richTextResolver;
 
 const bridgeLatest = "https://app.storyblok.com/f/storyblok-v2-latest.js";
 
@@ -54,7 +56,13 @@ export { default as apiPlugin } from "./modules/api";
 export { default as storyblokEditable } from "./modules/editable";
 
 export const storyblokInit = (pluginOptions: SbSDKOptions = {}) => {
-  const { bridge, accessToken, use = [], apiOptions = {} } = pluginOptions;
+  const {
+    bridge,
+    accessToken,
+    use = [],
+    apiOptions = {},
+    richText = {},
+  } = pluginOptions;
 
   apiOptions.accessToken = apiOptions.accessToken || accessToken;
 
@@ -71,19 +79,58 @@ export const storyblokInit = (pluginOptions: SbSDKOptions = {}) => {
     loadBridge(bridgeLatest);
   }
 
+  // Rich Text resolver
+  richTextResolver = new RichTextResolver(richText.schema);
+  if (richText.resolver) {
+    setComponentResolver(richTextResolver, richText.resolver);
+  }
+
   return result;
 };
 
-export const renderRichText = (text: Richtext): string => {
-  if ((text as any) === "") {
+const setComponentResolver = (resolver, resolveFn) => {
+  resolver.addNode("blok", (node) => {
+    let html = "";
+
+    node.attrs.body.forEach((blok) => {
+      html += resolveFn(blok.component, blok);
+    });
+
+    return {
+      html: html,
+    };
+  });
+};
+
+export const renderRichText = (
+  data: Richtext,
+  options?: SbRichTextOptions
+): string => {
+  if (!richTextResolver) {
+    console.error(
+      "Please initialize the Storyblok SDK before calling the renderRichText function"
+    );
+    return;
+  }
+
+  if ((data as any) === "") {
     return "";
-  } else if (!text) {
-    console.warn(`${text} is not a valid Richtext object. This might be because the value of the richtext field is empty.
+  } else if (!data) {
+    console.warn(`${data} is not a valid Richtext object. This might be because the value of the richtext field is empty.
     
   For more info about the richtext object check https://github.com/storyblok/storyblok-js#rendering-rich-text`);
     return "";
   }
-  return resolver.render(text);
+
+  let localResolver = richTextResolver;
+  if (options) {
+    localResolver = new RichTextResolver(options.schema);
+    if (options.resolver) {
+      setComponentResolver(localResolver, options.resolver);
+    }
+  }
+
+  return localResolver.render(data);
 };
 
 export const loadStoryblokBridge = () => loadBridge(bridgeLatest);
