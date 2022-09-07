@@ -52,6 +52,8 @@ export const useStoryblokBridge = <
   });
 };
 
+export { useStoryblokBridge as registerStoryblokBridge };
+
 export { default as apiPlugin } from "./modules/api";
 export { default as storyblokEditable } from "./modules/editable";
 

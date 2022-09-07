@@ -97,7 +97,7 @@ const { data } = await storyblokApi.get("cdn/stories", { version: "draft" });
 
 #### 2. Listen to Storyblok Visual Editor events
 
-Use `useStoryblokBridge` to get the new story every time is triggered a `change` event from the Visual Editor. You need to pass the story id as first param, and a callback function as second param to update the new story:
+Use `useStoryblokBridge` or `registerStoryblokBridge` to get the new story every time is triggered a `change` event from the Visual Editor. You need to pass the story id as first param, and a callback function as second param to update the new story:
 
 ```js
 import { storyblokInit, apiPlugin, useStoryblokBridge } from "@storyblok/js";
@@ -180,7 +180,7 @@ const { storyblokApi } = storyblokInit({
 });
 ```
 
-If you don't use `useStoryblokBridge`, you have still access to the raw `window.StoryblokBridge`:
+If you don't use `useStoryblokBridge` or `registerStoryblokBridge`, you have still access to the raw `window.StoryblokBridge`:
 
 ```js
 const sbBridge = new window.StoryblokBridge(options);
