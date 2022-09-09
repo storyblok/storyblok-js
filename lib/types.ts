@@ -19,7 +19,7 @@ export interface SbInitResult {
 }
 
 export type SbPluginFactory = (options: SbSDKOptions) => any;
-export type SbBlokKeyDataTypes = string | number | object | boolean;
+export type SbBlokKeyDataTypes = string | number | object | boolean | undefined;
 
 export interface SbBlokData extends StoryblokComponent<string> {
   [index: string]: SbBlokKeyDataTypes;
