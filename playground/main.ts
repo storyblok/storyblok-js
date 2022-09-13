@@ -2,6 +2,8 @@ import {
   storyblokInit,
   loadStoryblokBridge,
   renderRichText,
+  useStoryblokBridge,
+  apiPlugin,
 } from "@storyblok/js";
 import richTextFixture from "../lib/fixtures/richTextObject.json";
 
@@ -44,21 +46,31 @@ declare global {
   }
 }
 
-window.initWithBridge = () => {
-  storyblokInit({
-    accessToken: "wANpEQEsMYGOwLxwXQ76Ggtt",
+window.initWithBridge = async () => {
+  const { storyblokApi } = storyblokInit({
+    accessToken: "OurklwV5XsDJTIE1NJaD2wtt",
+    use: [apiPlugin],
+  });
+
+  const { data } = await storyblokApi?.get("cdn/stories/js", {
+    version: "draft",
+  });
+
+  useStoryblokBridge(data.story.id, (newStory) => {
+    console.log("-- PLAYGROUND --");
+    console.log(newStory);
   });
 };
 
 window.initWithoutBridge = () => {
   storyblokInit({
-    accessToken: "wANpEQEsMYGOwLxwXQ76Ggtt",
+    accessToken: "OurklwV5XsDJTIE1NJaD2wtt",
     bridge: false,
   });
 };
 window.initCustomRichText = () => {
   storyblokInit({
-    accessToken: "wANpEQEsMYGOwLxwXQ76Ggtt",
+    accessToken: "OurklwV5XsDJTIE1NJaD2wtt",
     richText: {
       schema: customSchema,
       resolver: customComponentResolver,
