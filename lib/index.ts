@@ -44,9 +44,13 @@ export const useStoryblokBridge = <
   window.storyblokRegisterEvent(() => {
     const sbBridge: StoryblokBridgeV2 = new window.StoryblokBridge(options);
     sbBridge.on(["input", "published", "change"], (event) => {
-      if (event.story.id === id) {
-        if (event.action === "input") cb(event.story);
-        else window.location.reload();
+      if (event.action === "input" && event.story.id === id) {
+        cb(event.story);
+      } else if (
+        (event.action === "change" || event.action === "published") &&
+        (event.storyId as any) === id // @todo: "as any" is a temporary fix till https://github.com/storyblok/storyblok-js-client/pull/280 is merged
+      ) {
+        window.location.reload();
       }
     });
   });
