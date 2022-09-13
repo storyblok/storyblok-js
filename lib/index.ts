@@ -46,7 +46,10 @@ export const useStoryblokBridge = <
     sbBridge.on(["input", "published", "change"], (event) => {
       if (event.action === "input" && event.story.id === id) {
         cb(event.story);
-      } else if (event.action === "change" || event.action === "published") {
+      } else if (
+        (event.action === "change" || event.action === "published") &&
+        event.storyId === id
+      ) {
         window.location.reload();
       }
     });
