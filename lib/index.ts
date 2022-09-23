@@ -8,6 +8,7 @@ import {
   Richtext,
   StoryblokComponentType,
   SbRichTextOptions,
+  RichtextInstance,
 } from "./types";
 
 import RichTextResolver from "storyblok-js-client/source/richTextResolver";
@@ -110,9 +111,11 @@ const setComponentResolver = (resolver, resolveFn) => {
 
 export const renderRichText = (
   data: Richtext,
-  options?: SbRichTextOptions
+  options?: SbRichTextOptions,
+  resolverInstance?: RichtextInstance,
 ): string => {
-  if (!richTextResolver) {
+  let localResolver = resolverInstance || richTextResolver;
+  if (!localResolver) {
     console.error(
       "Please initialize the Storyblok SDK before calling the renderRichText function"
     );
@@ -128,7 +131,6 @@ export const renderRichText = (
     return "";
   }
 
-  let localResolver = richTextResolver;
   if (options) {
     localResolver = new RichTextResolver(options.schema);
     if (options.resolver) {
