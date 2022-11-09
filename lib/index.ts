@@ -11,8 +11,8 @@ import {
   RichtextInstance,
 } from "./types";
 
-import RichTextResolver from "storyblok-js-client/source/richTextResolver";
-export { default as RichTextSchema } from "storyblok-js-client/source/schema";
+import RichTextResolver from "storyblok-js-client/dist/richTextResolver";
+export { default as RichTextSchema } from "storyblok-js-client/dist/schema";
 
 let richTextResolver;
 
@@ -112,7 +112,7 @@ const setComponentResolver = (resolver, resolveFn) => {
 export const renderRichText = (
   data: Richtext,
   options?: SbRichTextOptions,
-  resolverInstance?: RichtextInstance,
+  resolverInstance?: RichtextInstance
 ): string => {
   let localResolver = resolverInstance || richTextResolver;
   if (!localResolver) {
