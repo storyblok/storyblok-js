@@ -3,16 +3,14 @@ import {
   SbSDKOptions,
   StoryblokBridgeConfigV2,
   StoryblokBridgeV2,
-  StoryData,
+  ISbStoryData,
   SbInitResult,
-  Richtext,
+  ISbRichtext,
   StoryblokComponentType,
   SbRichTextOptions,
-  RichtextInstance,
 } from "./types";
 
-import RichTextResolver from "storyblok-js-client/dist/richTextResolver";
-export { default as RichTextSchema } from "storyblok-js-client/dist/schema";
+import { RichtextResolver } from "storyblok-js-client";
 
 let richTextResolver;
 
@@ -22,7 +20,7 @@ export const useStoryblokBridge = <
   T extends StoryblokComponentType<string> = any
 >(
   id: Number,
-  cb: (newStory: StoryData<T>) => void,
+  cb: (newStory: ISbStoryData<T>) => void,
   options: StoryblokBridgeConfigV2 = {}
 ) => {
   if (typeof window === "undefined") {
@@ -87,7 +85,7 @@ export const storyblokInit = (pluginOptions: SbSDKOptions = {}) => {
   }
 
   // Rich Text resolver
-  richTextResolver = new RichTextResolver(richText.schema);
+  richTextResolver = new RichtextResolver(richText.schema);
   if (richText.resolver) {
     setComponentResolver(richTextResolver, richText.resolver);
   }
@@ -110,9 +108,9 @@ const setComponentResolver = (resolver, resolveFn) => {
 };
 
 export const renderRichText = (
-  data: Richtext,
+  data: ISbRichtext,
   options?: SbRichTextOptions,
-  resolverInstance?: RichtextInstance
+  resolverInstance?: RichtextResolver
 ): string => {
   let localResolver = resolverInstance || richTextResolver;
   if (!localResolver) {
@@ -132,7 +130,7 @@ export const renderRichText = (
   }
 
   if (options) {
-    localResolver = new RichTextResolver(options.schema);
+    localResolver = new RichtextResolver(options.schema);
     if (options.resolver) {
       setComponentResolver(localResolver, options.resolver);
     }

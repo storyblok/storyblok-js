@@ -1,6 +1,7 @@
 import StoryblokJSClient, {
-  StoryblokConfig,
-  StoryblokComponent,
+  ISbConfig,
+  ISbComponentType,
+  ISbStoryData,
 } from "storyblok-js-client";
 
 export type StoryblokClient = StoryblokJSClient;
@@ -21,18 +22,18 @@ export interface SbInitResult {
 export type SbPluginFactory = (options: SbSDKOptions) => any;
 export type SbBlokKeyDataTypes = string | number | object | boolean | undefined;
 
-export interface SbBlokData extends StoryblokComponent<string> {
+export interface SbBlokData extends ISbComponentType<string> {
   [index: string]: SbBlokKeyDataTypes;
 }
 export interface SbRichTextOptions {
-  schema?: StoryblokConfig["richTextSchema"];
-  resolver?: StoryblokConfig["componentResolver"];
+  schema?: ISbConfig["richTextSchema"];
+  resolver?: ISbConfig["componentResolver"];
 }
 export interface SbSDKOptions {
   bridge?: boolean;
   accessToken?: string;
   use?: any[];
-  apiOptions?: StoryblokConfig;
+  apiOptions?: ISbConfig;
   richText?: SbRichTextOptions;
 }
 
@@ -73,23 +74,31 @@ export interface StoryblokBridgeV2 {
       | "unpublished"
       | "enterEditmode"
       | string[],
-    callback: (payload?: StoryblokEventPayload) => void
+    callback: (payload?: ISbEventPayload) => void
   ) => void;
 }
 
 export type {
-  StoryblokConfig,
-  StoryblokCache,
-  StoryblokCacheProvider,
-  StoryblokResult,
-  StoryblokManagmentApiResult,
-  StoryblokComponent as StoryblokComponentType,
-  StoryData,
-  AlternateObject,
-  Stories,
-  Story,
-  StoriesParams,
-  StoryParams,
-  Richtext,
-  RichtextInstance,
+  ISbConfig, // previously StoryblokConfig
+  ISbCache, // previously StoryblokCache
+  ISbResult, // previously StoryblokResult
+  ISbResponse,
+  ISbError,
+  ISbNode,
+  ISbSchema,
+  ThrottleFn,
+  AsyncFn,
+  ArrayFn,
+  ISbContentMangmntAPI,
+  ISbManagmentApiResult, // previously StoryblokManagmentApiResult
+  ISbStories, // previously Stories
+  ISbStory, // previously Story
+  ISbDimensions,
+  ISbComponentType as StoryblokComponentType,
+  ISbStoryData, // previously StoryData
+  ISbAlternateObject, // previously AlternateObject
+  ISbStoriesParams, // previously StoriesParams
+  ISbStoryParams, // previously StoryParams
+  ISbRichtext, // previously Richtext
+  RichtextResolver,
 } from "storyblok-js-client";

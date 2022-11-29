@@ -12,9 +12,6 @@ export default defineConfig(() => {
         fileName: (format) =>
           format === "es" ? `${libName}.mjs` : `${libName}.js`,
       },
-      rollupOptions: {
-        external: ["axios"],
-      },
     },
   };
 });
