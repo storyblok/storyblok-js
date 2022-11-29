@@ -65,6 +65,10 @@ import { storyblokInit, apiPlugin } from "@storyblok/js";
 const { storyblokApi } = storyblokInit({
   accessToken: "YOUR_ACCESS_TOKEN",
   use: [apiPlugin],
+  // if you are using a space located in US region, use apiOptions.region:
+  // apiOptions: {
+  // region: "us" // region code here
+  // }
 });
 ```
 
