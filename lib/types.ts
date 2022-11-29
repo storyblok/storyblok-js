@@ -36,6 +36,22 @@ export interface SbSDKOptions {
   richText?: SbRichTextOptions;
 }
 
+export interface ISbEventPayload<S extends ISbComponentType<string> = any> {
+  action:
+    | "customEvent"
+    | "published"
+    | "input"
+    | "change"
+    | "unpublished"
+    | "enterEditmode";
+  event?: string;
+  story?: ISbStoryData<S>;
+  slug?: string;
+  slugChanged?: boolean;
+  storyId?: number;
+  reload?: boolean;
+}
+
 // TODO: temporary till the right bridge types are updated on storyblok-js-client
 export interface StoryblokBridgeConfigV2 {
   resolveRelations?: string[];
