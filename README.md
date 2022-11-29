@@ -45,6 +45,8 @@ npm install @storyblok/js
 // yarn add @storyblok/js
 ```
 
+> ⚠️**Note**: this SDK uses the Fetch API under the hood. If your environment doesn't support it, you need to install a polyfill like [isomorphic-fetch](https://github.com/matthew-andrews/isomorphic-fetch). More info on [storyblok-js-client docs](https://github.com/storyblok/storyblok-js-client#fetch-use-polyfill-if-needed---version-5)
+
 #### From a CDN
 
 Install the file from the CDN:
