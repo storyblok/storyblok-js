@@ -13,5 +13,8 @@ export default defineConfig(() => {
           format === "es" ? `${libName}.mjs` : `${libName}.js`,
       },
     },
+    test: {
+      setupFiles: ["./tests/setup.js"],
+    },
   };
 });
