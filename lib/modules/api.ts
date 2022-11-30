@@ -1,5 +1,5 @@
-import StoryblokClient, { StoryblokConfig } from "storyblok-js-client";
-import { SbSDKOptions, SbPluginFactory } from "../types";
+import StoryblokClient from "storyblok-js-client";
+import { SbPluginFactory } from "../types";
 
 const apiFactory: SbPluginFactory = (options = {}) => {
   const { apiOptions } = options;

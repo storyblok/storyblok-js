@@ -12,9 +12,9 @@ export default defineConfig(() => {
         fileName: (format) =>
           format === "es" ? `${libName}.mjs` : `${libName}.js`,
       },
-      rollupOptions: {
-        external: ["axios"],
-      },
+    },
+    test: {
+      setupFiles: ["./tests/setup.js"],
     },
   };
 });

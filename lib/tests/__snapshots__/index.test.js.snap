@@ -1,0 +1,3 @@
+// Vitest Snapshot v1
+
+exports[`@storyblok/js > Rich Text Resolver > should return the rendered HTML when passing a RichText object 1`] = `"<p>Hola<b>in bold</b></p>"`;

@@ -52,7 +52,7 @@ window.initWithBridge = async () => {
     use: [apiPlugin],
   });
 
-  const { data } = await storyblokApi?.get("cdn/stories/js", {
+  const { data } = await storyblokApi!.get("cdn/stories/js", {
     version: "draft",
   });
 
