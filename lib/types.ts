@@ -100,6 +100,6 @@ export type {
   ISbStoriesParams, // previously StoriesParams
   ISbStoryParams, // previously StoryParams
   ISbRichtext, // previously Richtext
-  RichtextResolver,
-  RichtextSchema,
+  RichtextResolver as RichTextResolver,
+  RichtextSchema as RichTextSchema,
 } from "storyblok-js-client";
