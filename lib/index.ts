@@ -55,11 +55,6 @@ export const useStoryblokBridge = <
   });
 };
 
-export { useStoryblokBridge as registerStoryblokBridge };
-
-export { default as apiPlugin } from "./modules/api";
-export { default as storyblokEditable } from "./modules/editable";
-
 export const storyblokInit = (pluginOptions: SbSDKOptions = {}) => {
   const {
     bridge,
@@ -140,6 +135,16 @@ export const renderRichText = (
 };
 
 export const loadStoryblokBridge = () => loadBridge(bridgeLatest);
+
+export { useStoryblokBridge as registerStoryblokBridge };
+
+export { default as apiPlugin } from "./modules/api";
+export { default as storyblokEditable } from "./modules/editable";
+
+export {
+  RichtextResolver as RichTextResolver,
+  RichtextSchema as RichTextSchema,
+} from "storyblok-js-client";
 
 // Reexport all types so users can have access to them
 export * from "./types";
