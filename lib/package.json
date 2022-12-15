@@ -36,7 +36,7 @@
     "eslint-plugin-jest": "^26.9.0",
     "isomorphic-fetch": "^3.0.0",
     "start-server-and-test": "^1.14.0",
-    "vite": "^2.9.15",
+    "vite": "^4.0.1",
     "vitest": "^0.25.3"
   },
   "babel": {
