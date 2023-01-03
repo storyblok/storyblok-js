@@ -1,5 +1,0 @@
-{
-  "integration": {
-    "testFiles": "**/*.spec.js"
-  }
-}
