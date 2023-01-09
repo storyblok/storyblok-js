@@ -12,6 +12,9 @@ export default defineConfig(() => {
         fileName: (format) =>
           format === "es" ? `${libName}.mjs` : `${libName}.js`,
       },
+      rollupOptions: {
+        external: ["storyblok-js-client"],
+      },
     },
     test: {
       setupFiles: ["./tests/setup.js"],
