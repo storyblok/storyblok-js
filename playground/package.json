@@ -6,7 +6,7 @@
     "build": "vite build"
   },
   "devDependencies": {
-    "@storyblok/js": "^0.0.1",
+    "@storyblok/js": "^2.0.6",
     "vite": "^4.0.4"
   }
 }
