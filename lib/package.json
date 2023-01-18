@@ -27,7 +27,7 @@
     "prepublishOnly": "npm run build && cp ../README.md ./"
   },
   "dependencies": {
-    "storyblok-js-client": "^5.3.0"
+    "storyblok-js-client": "^5.3.2"
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.1",
