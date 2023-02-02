@@ -73,9 +73,10 @@ export const storyblokInit = (pluginOptions: SbSDKOptions = {}) => {
   use.forEach((pluginFactory: Function) => {
     result = { ...result, ...pluginFactory(options) };
   });
-
+  
+  const inEditor = window && window.location && window.location.search && window.location.search.includes('_storyblok_tk');
   // Load bridge
-  if (bridge !== false) {
+  if (bridge !== false && inEditor) {
     loadBridge(bridgeLatest);
   }
 
