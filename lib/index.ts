@@ -75,8 +75,15 @@ export const storyblokInit = (pluginOptions: SbSDKOptions = {}) => {
   });
 
   // Load bridge
-  if (bridge !== false) {
-    loadBridge(bridgeLatest);
+  const searchParams = new URLSearchParams(window.location.search);
+  if (bridge !== false && searchParams.has("_storyblok")) {
+    if (window.location !== window.parent.location) {
+      loadBridge(bridgeLatest);
+    } else {
+      console.warn(
+        "You are not in the Visual Editor, but you are loading a preview url. Did not load bridge."
+      );
+    }
   }
 
   // Rich Text resolver
