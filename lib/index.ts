@@ -24,8 +24,10 @@ export const useStoryblokBridge = <
   options: StoryblokBridgeConfigV2 = {}
 ) => {
   const isServer = typeof window === "undefined";
-  const isBridgeLoaded = typeof window.storyblokRegisterEvent !== "undefined";
-  if (isServer || (!isServer && !isBridgeLoaded)) {
+  const isBridgeLoaded =
+    !isServer && typeof window.storyblokRegisterEvent !== "undefined";
+
+  if (!isBridgeLoaded) {
     return;
   }
 
