@@ -23,15 +23,11 @@ export const useStoryblokBridge = <
   cb: (newStory: ISbStoryData<T>) => void,
   options: StoryblokBridgeConfigV2 = {}
 ) => {
-  if (typeof window === "undefined") {
-    return;
-  }
+  const isServer = typeof window === "undefined";
+  const isBridgeLoaded =
+    !isServer && typeof window.storyblokRegisterEvent !== "undefined";
 
-  if (typeof window.storyblokRegisterEvent === "undefined") {
-    console.error(
-      "Storyblok Bridge is disabled. Please enable it to use it. Read https://github.com/storyblok/storyblok-js"
-    );
-
+  if (!isBridgeLoaded) {
     return;
   }
 

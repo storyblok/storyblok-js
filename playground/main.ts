@@ -67,6 +67,9 @@ window.initWithoutBridge = () => {
     accessToken: "OurklwV5XsDJTIE1NJaD2wtt",
     bridge: false,
   });
+
+  // Used to test no log/warn/errors are printed
+  useStoryblokBridge(1, () => {});
 };
 window.initCustomRichText = () => {
   storyblokInit({
