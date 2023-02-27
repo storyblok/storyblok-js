@@ -1,6 +1,6 @@
 {
   "name": "@storyblok/js",
-  "version": "2.0.6",
+  "version": "2.0.16",
   "description": "SDK to integrate Storyblok into your project using JavaScript.",
   "main": "./dist/storyblok-js.js",
   "module": "./dist/storyblok-js.mjs",

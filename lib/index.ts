@@ -74,7 +74,7 @@ export const storyblokInit = (pluginOptions: SbSDKOptions = {}) => {
   ** Load bridge if you are on the Visual Editor
   ** For more security: https://www.storyblok.com/faq/how-to-verify-the-preview-query-parameters-of-the-visual-editor
   */
-  const inEditor = window && window.location && window.location.search && window.location.search.includes('_storyblok_tk');
+  const inEditor = window?.location?.search?.includes('_storyblok_tk');
   if (bridge !== false && inEditor) {
     loadBridge(bridgeLatest);
   }
