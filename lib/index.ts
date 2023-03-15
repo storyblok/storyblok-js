@@ -26,8 +26,12 @@ export const useStoryblokBridge = <
   const isServer = typeof window === "undefined";
   const isBridgeLoaded =
     !isServer && typeof window.storyblokRegisterEvent !== "undefined";
+  const storyId = new URL(window.location?.href).searchParams.get(
+    "_storyblok"
+  );
+  const inStory = +storyId === id;
 
-  if (!isBridgeLoaded) {
+  if (!isBridgeLoaded || !inStory) {
     return;
   }
 

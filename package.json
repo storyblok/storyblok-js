@@ -4,11 +4,13 @@
   "version": "0.0.0",
   "workspaces": [
     "./lib",
-    "./playground"
+    "./playground",
+    "./playground-vue"
   ],
   "scripts": {
     "dev": "npm run dev --workspace=lib & npm run demo",
     "demo": "npm run demo --workspace=playground",
+    "demo-vue": "npm run demo --workspace=playground-vue",
     "build": "npm run build --workspace=lib",
     "test:unit": "npm run test:unit --workspace=lib",
     "test:e2e": "npm run test:e2e --workspace=lib",
@@ -60,6 +62,8 @@
     "singleQuote": false
   },
   "release": {
-    "branches": ["main"]
+    "branches": [
+      "main"
+    ]
   }
 }
