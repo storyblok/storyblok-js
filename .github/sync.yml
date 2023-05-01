@@ -1,55 +1,63 @@
 storyblok/storyblok-nuxt:
-  - source: .github/ISSUE_TEMPLATE
+  - source: .github/ISSUE_TEMPLATE/issue.bug.yml
     template:
       tech:
         name: "Nuxt 3"
         package: "nuxt"
+  - source: .github/ISSUE_TEMPLATE/issue.fr.yml
 
 storyblok/storyblok-vue:
-  - source: .github/ISSUE_TEMPLATE
+  - source: .github/ISSUE_TEMPLATE/issue.bug.yml
     template:
       tech:
         name: "Vue 3"
         package: "vue"
+  - source: .github/ISSUE_TEMPLATE/issue.fr.yml
 
 storyblok/storyblok-nuxt-2:
-  - source: .github/ISSUE_TEMPLATE
+  - source: .github/ISSUE_TEMPLATE/issue.bug.yml
     template:
     tech:
       name: "Nuxt 2"
       package: "nuxt"
+  - source: .github/ISSUE_TEMPLATE/issue.fr.yml
 
 storyblok/storyblok-vue-2:
-  - source: .github/ISSUE_TEMPLATE
+  - source: .github/ISSUE_TEMPLATE/issue.bug.yml
     template:
       tech:
         name: "Vue 2"
         package: "vue"
+  - source: .github/ISSUE_TEMPLATE/issue.fr.yml
 
 storyblok/storyblok-react:
-  - source: .github/ISSUE_TEMPLATE
+  - source: .github/ISSUE_TEMPLATE/issue.bug.yml
     template:
       tech:
         name: "React"
         package: "react"
+  - source: .github/ISSUE_TEMPLATE/issue.fr.yml
 
 storyblok/gatsby-source-storyblok:
-  - source: .github/ISSUE_TEMPLATE
+  - source: .github/ISSUE_TEMPLATE/issue.bug.yml
     template:
       tech:
         name: "Gatsby"
         package: "gatsby"
+  - source: .github/ISSUE_TEMPLATE/issue.fr.yml
 
 storyblok/storyblok-svelte:
-  - source: .github/ISSUE_TEMPLATE
+  - source: .github/ISSUE_TEMPLATE/issue.bug.yml
     template:
       tech:
         name: "Svelte"
         package: "svelte"
+  - source: .github/ISSUE_TEMPLATE/issue.fr.yml
 
 storyblok/storyblok-astro:
-  - source: .github/ISSUE_TEMPLATE
+  - source: .github/ISSUE_TEMPLATE/issue.bug.yml
     template:
       tech:
         name: "Astro"
         package: "astro"
+  - source: .github/ISSUE_TEMPLATE/issue.fr.yml
