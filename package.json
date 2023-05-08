@@ -20,7 +20,7 @@
     "@commitlint/cli": "^17.5.1",
     "@commitlint/config-conventional": "^17.3.0",
     "@tsconfig/recommended": "^1.0.1",
-    "eslint": "^8.37.0",
+    "eslint": "^8.40.0",
     "eslint-config-prettier": "^8.5.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.2.0",
