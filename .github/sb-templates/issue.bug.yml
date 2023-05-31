@@ -32,7 +32,7 @@ body:
     id: system-info
     attributes:
       label: System Info
-      description: Output of `npx envinfo --system --npmPackages '{{{ tech.package }},@storyblok/*}' --binaries --browsers`
+      description: Output of `npx envinfo --system --npmPackages '{ {{ tech.package }}, @storyblok/*}' --binaries --browsers`
       render: shell
       placeholder: System, Binaries, Browsers, {{ tech.name }} & Storyblok SDK version
     validations:
