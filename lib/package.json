@@ -38,7 +38,7 @@
     "isomorphic-fetch": "^3.0.0",
     "start-server-and-test": "^1.15.2",
     "vite": "^4.0.4",
-    "vitest": "^0.31.1"
+    "vitest": "^0.31.4"
   },
   "babel": {
     "presets": [
