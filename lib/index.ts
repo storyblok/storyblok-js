@@ -107,8 +107,12 @@ const setComponentResolver = (resolver, resolveFn) => {
   });
 };
 
+export const isRichTextEmpty = (data?: ISbRichtext) => {
+return !data || (data?.content?.[0].type !== "blok" && !data?.content?.[0].content);
+}
+
 export const renderRichText = (
-  data: ISbRichtext,
+  data?: ISbRichtext,
   options?: SbRichTextOptions,
   resolverInstance?: RichtextResolver
 ): string => {
@@ -120,12 +124,7 @@ export const renderRichText = (
     return;
   }
 
-  if ((data as any) === "") {
-    return "";
-  } else if (!data) {
-    console.warn(`${data} is not a valid Richtext object. This might be because the value of the richtext field is empty.
-    
-  For more info about the richtext object check https://github.com/storyblok/storyblok-js#rendering-rich-text`);
+  if (isRichTextEmpty(data)) {
     return "";
   }
 
