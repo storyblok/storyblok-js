@@ -22,9 +22,9 @@ storyblok/storyblok-nuxt-2:
   - source: .github/sb-templates/issue.bug.yml
     dest: .github/ISSUE_TEMPLATE/issue.bug.yml
     template:
-    tech:
-      name: "Nuxt 2"
-      package: "nuxt"
+      tech:
+        name: "Nuxt 2"
+        package: "nuxt"
   - source: .github/sb-templates/issue.fr.yml
     dest: .github/ISSUE_TEMPLATE/issue.fr.yml
 
