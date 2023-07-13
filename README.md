@@ -145,6 +145,7 @@ You can pass [Bridge options](https://www.storyblok.com/docs/Guides/storyblok-la
 ```js
 useStoryblokBridge(story.id, (story) => (state.story = story), {
   resolveRelations: ["Article.author"],
+  resolveLinks: "url"
 });
 ```
 
