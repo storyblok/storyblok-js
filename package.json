@@ -18,13 +18,13 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.6",
-    "@commitlint/config-conventional": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.7",
     "@tsconfig/recommended": "^1.0.1",
-    "eslint": "^8.44.0",
+    "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.5.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.2.3",
-    "prettier": "^2.8.8"
+    "prettier": "^3.0.0"
   },
   "lint-staged": {
     "*.{vue,svelte,js,jsx,css,ts,tsx}": [
