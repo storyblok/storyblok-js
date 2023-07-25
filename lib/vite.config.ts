@@ -16,5 +16,8 @@ export default defineConfig(() => {
     test: {
       setupFiles: ["./tests/setup.js"],
     },
+    define: {
+      'process.env': process.env
+    }
   };
 });
