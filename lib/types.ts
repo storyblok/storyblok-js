@@ -55,7 +55,7 @@ export interface ISbEventPayload<S extends ISbComponentType<string> = any> {
 
 // TODO: temporary till the right bridge types are updated on storyblok-js-client
 export interface StoryblokBridgeConfigV2 {
-  resolveRelations?: string[];
+  resolveRelations?: string | string[];
   customParent?: string;
   preventClicks?: boolean;
   language?: string;
