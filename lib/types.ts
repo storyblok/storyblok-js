@@ -59,6 +59,7 @@ export interface StoryblokBridgeConfigV2 {
   customParent?: string;
   preventClicks?: boolean;
   language?: string;
+  resolveLinks?: "url" | "story" | "0" | "1" | "link";
 }
 
 export interface StoryblokBridgeV2 {
