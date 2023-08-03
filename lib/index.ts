@@ -108,7 +108,7 @@ const setComponentResolver = (resolver, resolveFn) => {
 };
 
 export const isRichTextEmpty = (data?: ISbRichtext) => {
-return !data || (data?.content?.[0].type !== "blok" && !data?.content?.[0].content);
+  return !data || !data?.content.some((node) => node.content || node.type === 'blok' || node.type === 'horizontal_rule');
 }
 
 export const renderRichText = (
