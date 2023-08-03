@@ -2,6 +2,9 @@
   "type": "doc",
   "content": [
     {
+      "type": "paragraph"
+    },
+    {
       "type": "paragraph",
       "content": [
         {
@@ -35,6 +38,232 @@
           }
         ]
       }
+    },
+    {
+      "type": "paragraph"
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "text": "paragraph after empty line",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "type": "bullet_list",
+      "content": [
+        {
+          "type": "list_item",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "text": "an item in a list",
+                  "type": "text"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "list_item",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "text": "another one",
+                  "type": "text"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ordered_list",
+      "attrs": {
+        "order": 1
+      },
+      "content": [
+        {
+          "type": "list_item",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "text": "item in another list",
+                  "type": "text"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "list_item",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "text": "another one",
+                  "type": "text"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "blockquote",
+      "content": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "text": "this is a quote",
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "horizontal_rule"
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "text": "some word after an <hr>",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "type": "blok",
+      "attrs": {
+        "id": "12fcf3e3-7f45-4d45-b3a4-dbaf4c50414b",
+        "body": [
+          {
+            "_uid": "i-86ae8c08-6e61-477b-b1fc-16165bd14dc3",
+            "code": "a random blok with code",
+            "title": "",
+            "caption": {
+              "type": "doc",
+              "content": [
+                {
+                  "type": "paragraph"
+                }
+              ]
+            },
+            "language": "",
+            "component": "codeblock",
+            "enable_diff": false,
+            "_editable": "<!--#storyblok#{\"name\": \"codeblock\", \"space\": \"191005\", \"uid\": \"i-86ae8c08-6e61-477b-b1fc-16165bd14dc3\", \"id\": \"349336237\"}-->"
+          }
+        ]
+      }
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "text": "italic text",
+          "type": "text",
+          "marks": [
+            {
+              "type": "italic"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "text": "strikethrough",
+          "type": "text",
+          "marks": [
+            {
+              "type": "strike"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "text": "underlined",
+          "type": "text",
+          "marks": [
+            {
+              "type": "underline"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "text": "superscript",
+          "type": "text",
+          "marks": [
+            {
+              "type": "superscript"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "text": "subscript",
+          "type": "text",
+          "marks": [
+            {
+              "type": "subscript"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "text": "inline code",
+          "type": "text",
+          "marks": [
+            {
+              "type": "code"
+            }
+          ]
+        },
+        {
+          "text": " ",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "type": "paragraph"
+    },
+    {
+      "type": "paragraph"
     }
   ]
 }
