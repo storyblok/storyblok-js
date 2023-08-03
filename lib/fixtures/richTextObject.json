@@ -52,6 +52,9 @@
       ]
     },
     {
+      "type": "paragraph"
+    },
+    {
       "type": "bullet_list",
       "content": [
         {
@@ -75,7 +78,7 @@
               "type": "paragraph",
               "content": [
                 {
-                  "text": "another one",
+                  "text": "another item",
                   "type": "text"
                 }
               ]
@@ -83,6 +86,9 @@
           ]
         }
       ]
+    },
+    {
+      "type": "paragraph"
     },
     {
       "type": "ordered_list",
@@ -111,7 +117,7 @@
               "type": "paragraph",
               "content": [
                 {
-                  "text": "another one",
+                  "text": "another item",
                   "type": "text"
                 }
               ]
@@ -119,6 +125,9 @@
           ]
         }
       ]
+    },
+    {
+      "type": "paragraph"
     },
     {
       "type": "blockquote",
@@ -135,41 +144,25 @@
       ]
     },
     {
+      "type": "paragraph"
+    },
+    {
       "type": "horizontal_rule"
+    },
+    {
+      "type": "paragraph"
     },
     {
       "type": "paragraph",
       "content": [
         {
-          "text": "some word after an <hr>",
+          "text": "some words after an <hr>",
           "type": "text"
         }
       ]
     },
     {
-      "type": "blok",
-      "attrs": {
-        "id": "12fcf3e3-7f45-4d45-b3a4-dbaf4c50414b",
-        "body": [
-          {
-            "_uid": "i-86ae8c08-6e61-477b-b1fc-16165bd14dc3",
-            "code": "a random blok with code",
-            "title": "",
-            "caption": {
-              "type": "doc",
-              "content": [
-                {
-                  "type": "paragraph"
-                }
-              ]
-            },
-            "language": "",
-            "component": "codeblock",
-            "enable_diff": false,
-            "_editable": "<!--#storyblok#{\"name\": \"codeblock\", \"space\": \"191005\", \"uid\": \"i-86ae8c08-6e61-477b-b1fc-16165bd14dc3\", \"id\": \"349336237\"}-->"
-          }
-        ]
-      }
+      "type": "paragraph"
     },
     {
       "type": "paragraph",
@@ -186,6 +179,9 @@
       ]
     },
     {
+      "type": "paragraph"
+    },
+    {
       "type": "paragraph",
       "content": [
         {
@@ -198,6 +194,9 @@
           ]
         }
       ]
+    },
+    {
+      "type": "paragraph"
     },
     {
       "type": "paragraph",
@@ -214,6 +213,9 @@
       ]
     },
     {
+      "type": "paragraph"
+    },
+    {
       "type": "paragraph",
       "content": [
         {
@@ -228,6 +230,9 @@
       ]
     },
     {
+      "type": "paragraph"
+    },
+    {
       "type": "paragraph",
       "content": [
         {
@@ -240,6 +245,9 @@
           ]
         }
       ]
+    },
+    {
+      "type": "paragraph"
     },
     {
       "type": "paragraph",
@@ -258,12 +266,6 @@
           "type": "text"
         }
       ]
-    },
-    {
-      "type": "paragraph"
-    },
-    {
-      "type": "paragraph"
     }
   ]
 }
