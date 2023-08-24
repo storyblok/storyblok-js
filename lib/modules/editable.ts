@@ -9,8 +9,12 @@ export default (blok: SbBlokData) => {
     blok._editable.replace(/^<!--#storyblok#/, "").replace(/-->$/, "")
   );
 
-  return {
-    "data-blok-c": JSON.stringify(options),
-    "data-blok-uid": options.id + "-" + options.uid,
-  };
+  if (options) {
+    return {
+      "data-blok-c": JSON.stringify(options),
+      "data-blok-uid": options.id + "-" + options.uid,
+    };
+  }
+
+  return {};
 };
