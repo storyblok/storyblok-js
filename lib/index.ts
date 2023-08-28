@@ -14,7 +14,7 @@ import { RichtextResolver } from "storyblok-js-client";
 
 let richTextResolver;
 
-const bridgeLatest = "https://app.storyblok.com/f/storyblok-v2-latest.js";
+let bridgeLatest = "https://app.storyblok.com/f/storyblok-v2-latest.js";
 
 export const useStoryblokBridge = <
   T extends StoryblokComponentType<string> = any
@@ -62,6 +62,7 @@ export const storyblokInit = (pluginOptions: SbSDKOptions = {}) => {
     use = [],
     apiOptions = {},
     richText = {},
+    bridgeUrl
   } = pluginOptions;
 
   apiOptions.accessToken = apiOptions.accessToken || accessToken;
@@ -73,6 +74,10 @@ export const storyblokInit = (pluginOptions: SbSDKOptions = {}) => {
   use.forEach((pluginFactory: Function) => {
     result = { ...result, ...pluginFactory(options) };
   });
+
+  if (bridgeUrl) {
+    bridgeLatest = bridgeUrl;
+  }
 
   /*
   ** Load bridge if you are on the Visual Editor

@@ -35,6 +35,7 @@ export interface SbSDKOptions {
   use?: any[];
   apiOptions?: ISbConfig;
   richText?: SbRichTextOptions;
+  bridgeUrl?: string;
 }
 
 export interface ISbEventPayload<S extends ISbComponentType<string> = any> {
