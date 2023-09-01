@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.1",
-    "cypress": "^12.3.0",
+    "cypress": "^13.1.0",
     "eslint-plugin-cypress": "^2.14.0",
     "eslint-plugin-jest": "^26.9.0",
     "isomorphic-fetch": "^3.0.0",
