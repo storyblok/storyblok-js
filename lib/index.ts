@@ -47,7 +47,7 @@ export const useStoryblokBridge = <
         cb(event.story);
       } else if (
         (event.action === "change" || event.action === "published") &&
-        (event.storyId as any) === id // @todo: "as any" is a temporary fix till https://github.com/storyblok/storyblok-js-client/pull/280 is merged
+        (event.storyId as number) === id
       ) {
         window.location.reload();
       }
