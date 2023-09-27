@@ -31,7 +31,7 @@
     "storyblok-js-client": "^5.14.2"
   },
   "devDependencies": {
-    "@tsconfig/recommended": "^1.0.1",
+    "@tsconfig/recommended": "^1.0.3",
     "cypress": "^13.2.0",
     "eslint-plugin-cypress": "^2.14.0",
     "eslint-plugin-jest": "^26.9.0",
