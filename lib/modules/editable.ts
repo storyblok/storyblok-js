@@ -5,16 +5,20 @@ export default (blok: SbBlokData) => {
     return {};
   }
 
-  const options = JSON.parse(
-    blok._editable.replace(/^<!--#storyblok#/, "").replace(/-->$/, "")
-  );
+  try {
+    const options = JSON.parse(
+      blok._editable.replace(/^<!--#storyblok#/, "").replace(/-->$/, "")
+    );
 
-  if (options) {
-    return {
-      "data-blok-c": JSON.stringify(options),
-      "data-blok-uid": options.id + "-" + options.uid,
-    };
+    if (options) {
+      return {
+        "data-blok-c": JSON.stringify(options),
+        "data-blok-uid": options.id + "-" + options.uid,
+      };
+    }
+
+    return {};    
+  } catch {
+    return {};
   }
-
-  return {};
 };
