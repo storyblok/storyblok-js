@@ -21,14 +21,14 @@
     "test": "npm run test:unit && npm run test:e2e",
     "test:unit": "vitest run",
     "test:e2e": "start-server-and-test cy:playground http://localhost:5173/ cy:run",
-    "test:e2e-watch": "start-server-and-test cy:playground http-get://localhost:5173/ cy:open",
+    "test:e2e-watch": "start-server-and-test cy:playground http://localhost:5173/ cy:open",
     "cy:playground": "npm run demo --prefix ../playground",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "prepublishOnly": "npm run build && cp ../README.md ./"
   },
   "dependencies": {
-    "storyblok-js-client": "^6.4.0"
+    "storyblok-js-client": "^6.4.1"
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.3",
