@@ -43,18 +43,22 @@ function createEditInEditorLink(link) {
   document.body.appendChild(editInEditorEl);
 }
 
-// Function to update the link
-//@ts-ignore
-window.updateEditInEditorLink = (story) => {
-  const blockFields = editable(story.content);
-  const { space, id: storyId } = JSON.parse(blockFields["data-blok-c"]);
-
-  const editInEditorEl: HTMLLinkElement = document.querySelector(
-    "#sb_edit-in-editor-link"
-  );
-  editInEditorEl.href = `https://app.storyblok.com/#/me/spaces/${space}/stories/0/0/${storyId}`;
-};
-
+// Initialize the EditInEditor button
 export default () => {
-  createEditInEditorLink("");
+  //@ts-ignore
+  window.updateEditInEditorLink = (story) => {
+    const blockFields = editable(story.content);
+    const { space, id: storyId } = JSON.parse(blockFields["data-blok-c"]);
+
+    const editInEditorEl: HTMLLinkElement = document.querySelector(
+      "#sb_edit-in-editor-link"
+    );
+
+    if (editInEditorEl) {
+      editInEditorEl.href = `https://app.storyblok.com/#/me/spaces/${space}/stories/0/0/${storyId}`;
+    }
+  };
+
+  const storyId = new URL(window.location?.href).searchParams.get("_storyblok");
+  !!!storyId && createEditInEditorLink("");
 };
