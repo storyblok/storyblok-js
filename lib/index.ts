@@ -17,7 +17,7 @@ let richTextResolver;
 let bridgeLatest = "https://app.storyblok.com/f/storyblok-v2-latest.js";
 
 export const useStoryblokBridge = <
-  T extends StoryblokComponentType<string> = any
+  T extends StoryblokComponentType<string> = any,
 >(
   id: Number,
   cb: (newStory: ISbStoryData<T>) => void,
@@ -26,9 +26,7 @@ export const useStoryblokBridge = <
   const isServer = typeof window === "undefined";
   const isBridgeLoaded =
     !isServer && typeof window.storyblokRegisterEvent !== "undefined";
-  const storyId = new URL(window.location?.href).searchParams.get(
-    "_storyblok"
-  );
+  const storyId = new URL(window.location?.href).searchParams.get("_storyblok");
   const inStory = +storyId === id;
 
   if (!isBridgeLoaded || !inStory) {
@@ -62,7 +60,7 @@ export const storyblokInit = (pluginOptions: SbSDKOptions = {}) => {
     use = [],
     apiOptions = {},
     richText = {},
-    bridgeUrl
+    bridgeUrl,
   } = pluginOptions;
 
   apiOptions.accessToken = apiOptions.accessToken || accessToken;
@@ -80,11 +78,12 @@ export const storyblokInit = (pluginOptions: SbSDKOptions = {}) => {
   }
 
   /*
-  ** Load bridge if you are on the Visual Editor
-  ** For more security: https://www.storyblok.com/faq/how-to-verify-the-preview-query-parameters-of-the-visual-editor
-  */
+   ** Load bridge if you are on the Visual Editor
+   ** For more security: https://www.storyblok.com/faq/how-to-verify-the-preview-query-parameters-of-the-visual-editor
+   */
   const isServer = typeof window === "undefined";
-  const inEditor = !isServer && window.location?.search?.includes('_storyblok_tk');
+  const inEditor =
+    !isServer && window.location?.search?.includes("_storyblok_tk");
   if (bridge !== false && inEditor) {
     loadBridge(bridgeLatest);
   }
@@ -113,8 +112,14 @@ const setComponentResolver = (resolver, resolveFn) => {
 };
 
 export const isRichTextEmpty = (data?: ISbRichtext) => {
-  return !data || !data?.content.some((node) => node.content || node.type === 'blok' || node.type === 'horizontal_rule');
-}
+  return (
+    !data ||
+    !data?.content.some(
+      (node) =>
+        node.content || node.type === "blok" || node.type === "horizontal_rule"
+    )
+  );
+};
 
 export const renderRichText = (
   data?: ISbRichtext,

@@ -12,6 +12,7 @@ const apiFactory: SbPluginFactory = (options = {}) => {
   }
 
   const storyblokApi = new StoryblokClient(apiOptions);
+
   return { storyblokApi };
 };
 

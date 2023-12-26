@@ -56,6 +56,9 @@ window.initWithBridge = async () => {
     version: "draft",
   });
 
+  //@ts-ignore
+  window.updateBubbleButton(data.story);
+
   useStoryblokBridge(data.story.id, (newStory) => {
     console.log("-- PLAYGROUND --");
     console.log(newStory);
