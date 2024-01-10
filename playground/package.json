@@ -7,7 +7,7 @@
   },
   "devDependencies": {
     "@storyblok/js": "^2.0.6",
-    "@vitejs/plugin-basic-ssl": "^1.0.1",
+    "@vitejs/plugin-basic-ssl": "^1.0.2",
     "vite": "^4.0.4"
   }
 }
