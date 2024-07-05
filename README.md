@@ -30,11 +30,10 @@
   </a>
 </p>
 
-## 🚀 Usage
+## Kickstart a new project
+Are you eager to dive into coding? **[Follow these steps to kickstart a new project with Storyblok and a JavaScript frontend framework](https://www.storyblok.com/technologies?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js)**, and get started in just a few minutes!
 
-> If you are first-time user of the Storyblok, read the [Getting Started](https://www.storyblok.com/docs/guide/getting-started?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js) guide to get a project ready in less than 5 minutes.
-
-### Installation
+## Installation
 
 Install `@storyblok/js`:
 
@@ -45,7 +44,7 @@ npm install @storyblok/js
 
 > ⚠️ This SDK uses the Fetch API under the hood. If your environment doesn't support it, you need to install a polyfill like [isomorphic-fetch](https://github.com/matthew-andrews/isomorphic-fetch). More info on [storyblok-js-client docs](https://github.com/storyblok/storyblok-js-client#fetch-use-polyfill-if-needed---version-5).
 
-#### From a CDN
+### From a CDN
 
 Install the file from the CDN:
 
@@ -53,7 +52,7 @@ Install the file from the CDN:
 <script src="https://unpkg.com/@storyblok/js"></script>
 ```
 
-### Initialization
+## Initialization
 
 Register the plugin on your application and add the [access token](https://www.storyblok.com/docs/api/content-delivery#topics/authentication?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js) of your Storyblok space. You can also add the `apiPlugin` in case that you want to use the Storyblok API Client:
 
@@ -70,7 +69,7 @@ That's it! All the features are enabled for you: the _Api Client_ for interactin
 
 > You can enable/disable some of these features if you don't need them, so you save some KB. Please read the "Features and API" section
 
-#### Region parameter
+### Region parameter
 
 Possible values:
 
@@ -96,7 +95,7 @@ const { storyblokApi } = storyblokInit({
 
 > Note: For spaces created in the United States or China, the `region` parameter **must** be specified.
 
-### Getting Started
+## Getting Started
 
 `@storyblok/js` does three actions when you initialize it:
 
@@ -104,7 +103,7 @@ const { storyblokApi } = storyblokInit({
 - Loads [Storyblok Bridge](https://www.storyblok.com/docs/Guides/storyblok-latest-js?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js) for real-time visual updates.
 - Provides a `storyblokEditable` function to link editable components to the Storyblok Visual Editor.
 
-#### 1. Fetching Content
+### 1. Fetching Content
 
 Inject `storyblokApi`:
 
@@ -121,7 +120,7 @@ const { data } = await storyblokApi.get("cdn/stories", { version: "draft" });
 
 > Note: if you don't use `apiPlugin`, you can use your prefered method or function to fetch your data.
 
-#### 2. Listen to Storyblok Visual Editor events
+### 2. Listen to Storyblok Visual Editor events
 
 Use `useStoryblokBridge` or `registerStoryblokBridge` to get the new story every time is triggered a `change` event from the Visual Editor. You need to pass the story id as first param, and a callback function as second param to update the new story:
 
@@ -149,7 +148,7 @@ useStoryblokBridge(story.id, (story) => (state.story = story), {
 });
 ```
 
-#### 3. Link your components to Storyblok Visual Editor
+### 3. Link your components to Storyblok Visual Editor
 
 To link your app and Storyblok components together will depend on the framework you are using. But, in the end, you must add the `data-blok-c` and `data-blok-uid` attributes, and the `storyblok__outline` class.
 
@@ -172,11 +171,11 @@ const vEditableDirective = {
 
 At this point, you'll have your app connected to Storyblok with the real-time editing experience fully enabled.
 
-### Features and API
+## Features and API
 
 You can **choose the features to use** when you initialize the plugin. In that way, you can improve Web Performance by optimizing your page load and save some bytes.
 
-#### Storyblok API
+### Storyblok API
 
 You can use an `apiOptions` object. This is passed down to the (storyblok-js-client config object](https://github.com/storyblok/storyblok-js-client#class-storyblok):
 
@@ -197,7 +196,7 @@ If you prefer to use your own fetch method, just remove the `apiPlugin` and `sto
 storyblokInit({});
 ```
 
-#### Storyblok Bridge
+### Storyblok Bridge
 
 You can conditionally load it by using the `bridge` option. Very useful if you want to disable it in production:
 
@@ -217,7 +216,7 @@ sbBridge.on(["input", "published", "change"], (event) => {
 });
 ```
 
-#### Rendering Rich Text
+### Rendering Rich Text
 
 You can easily render rich text by using the `renderRichText` function that comes with `@storyblok/js`:
 
@@ -276,20 +275,20 @@ renderRichText(blok.richTextField, {
 
 ![A visual representation of the Storyblok JavaScript SDK Ecosystem](https://a.storyblok.com/f/88751/2400x1350/be4a4a4180/sdk-ecosystem.png/m/1200x0)
 
-## 🔗 Related Links
+## Further Resources
 
-- **[Storyblok Technology Hub](https://www.storyblok.com/technologies?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js)**: Storyblok integrates with every framework so that you are free to choose the best fit for your project. We prepared the technology hub so that you can find selected beginner tutorials, videos, boilerplates, and even cheatsheets all in one place.
-- **[Getting Started](https://www.storyblok.com/docs/guide/getting-started?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js)**: Get a project ready in less than 5 minutes.
-- **[Storyblok CLI](https://github.com/storyblok/storyblok)**: A simple CLI for scaffolding Storyblok projects and fieldtypes.
+- [Quick Start](https://www.storyblok.com/technologies?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js)
+- [API Documentation](https://www.storyblok.com/docs/api?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js)
+- [Developer Tutorials](https://www.storyblok.com/tutorials?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js)
+- [Developer Guides](https://www.storyblok.com/docs/guide/introduction?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js)
+- [FAQs](https://www.storyblok.com/faqs?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js)
 
-## ℹ️ More Resources
-
-### Support
+## Support
 
 - Bugs or Feature Requests? [Submit an issue](/../../issues/new).
 - Do you have questions about Storyblok or you need help? [Join our Discord Community](https://discord.gg/jKrbAMz).
 
-### Contributing
+## Contributing
 
 Please see our [contributing guidelines](https://github.com/storyblok/.github/blob/main/contributing.md) and our [code of conduct](https://www.storyblok.com/trust-center#code-of-conduct?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js).
 This project use [semantic-release](https://semantic-release.gitbook.io/semantic-release/) for generate new versions by using commit messages and we use the Angular Convention to naming the commits. Check [this question](https://semantic-release.gitbook.io/semantic-release/support/faq#how-can-i-change-the-type-of-commits-that-trigger-a-release) about it in semantic-release FAQ
