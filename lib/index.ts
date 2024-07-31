@@ -12,6 +12,9 @@ import {
 
 import { RichtextResolver } from "storyblok-js-client";
 
+import { type SbRichTextOptions as stdSbRichTextOptions} from "@storyblok/richtext";
+
+
 let richTextResolver;
 
 let bridgeLatest = "https://app.storyblok.com/f/storyblok-v2-latest.js";
@@ -90,6 +93,7 @@ export const storyblokInit = (pluginOptions: SbSDKOptions = {}) => {
   }
 
   // Rich Text resolver
+  // TODO: replace with @storyblok/richtext package on v4.x
   richTextResolver = new RichtextResolver(richText.schema);
   if (richText.resolver) {
     setComponentResolver(richTextResolver, richText.resolver);
@@ -134,12 +138,13 @@ export const renderRichText = (
   }
 
   if (options) {
+    // TODO: replace with @storyblok/richtext package on v4.x
     localResolver = new RichtextResolver(options.schema);
     if (options.resolver) {
       setComponentResolver(localResolver, options.resolver);
     }
   }
-
+  // NOTE: This will warn the user about deprecation of legacy Richtext when https://github.com/storyblok/storyblok-js-client/pull/845 is merged
   return localResolver.render(data);
 };
 
@@ -157,3 +162,23 @@ export {
 
 // Reexport all types so users can have access to them
 export * from "./types";
+
+/**
+ * This is a temporaly class to avoid type collision with the legacy richtext resolver.
+ * It will become ~~`newSbRichTextOptions`~~ -> `SbRichTextOptions` on v4.x
+ */
+export type newSbRichTextOptions = stdSbRichTextOptions;
+
+// New Richtext Resolver
+export {
+  BlockTypes,
+  MarkTypes,
+  richTextResolver,
+  TextTypes,
+  type SbRichTextDocumentNode,
+  type SbRichTextNodeTypes,
+  type SbRichTextNode,
+  type SbRichTextResolvers,
+  type SbRichTextNodeResolver,
+  type SbRichTextImageOptimizationOptions,
+} from "@storyblok/richtext"
