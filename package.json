@@ -14,13 +14,16 @@
     "build": "npm run build --workspace=lib",
     "test:unit": "npm run test:unit --workspace=lib",
     "test:e2e": "npm run test:e2e --workspace=lib",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": "eslint .",
+    "prettier": "prettier --write ."
   },
   "devDependencies": {
     "@commitlint/cli": "^19.2.2",
     "@commitlint/config-conventional": "^19.2.2",
     "@tsconfig/recommended": "^1.0.6",
-    "eslint": "^9.6.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "eslint": "^8.54.0",
     "eslint-config-prettier": "^9.1.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
@@ -41,18 +44,34 @@
     ]
   },
   "eslintConfig": {
-    "extends": [
-      "eslint:recommended",
-      "prettier"
+    "ignorePatterns": [
+      "node_modules",
+      "dist",
+      "lib/cypress"
     ],
     "env": {
       "browser": true,
-      "es6": true
+      "es2021": true,
+      "node": true
     },
-    "ignorePatterns": "dist/",
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
-      "sourceType": "module",
-      "ecmaVersion": 2018
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "rules": {
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-var-requires": 1,
+      "no-async-promise-executor": 0,
+      "no-undef": 0
     }
   },
   "prettier": {

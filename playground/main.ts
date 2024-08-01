@@ -5,7 +5,7 @@ import {
   useStoryblokBridge,
   apiPlugin,
   richTextResolver,
-  newSbRichTextOptions
+  newSbRichTextOptions,
 } from "@storyblok/js";
 import richTextFixture from "../lib/fixtures/richTextObject.json";
 
@@ -45,7 +45,7 @@ declare global {
     initCustomRichText: any;
     renderRichText: any;
     renderRichTextWithOptions: any;
-    newRichTextResolver: any
+    newRichTextResolver: any;
   }
 }
 
@@ -123,12 +123,12 @@ window.newRichTextResolver = () => {
           ],
         };
       },
-    }
-  }
+    },
+  };
   const html = richTextResolver(options).render(richTextFixture as any);
   const richTextContainer = document.getElementById(
     "rich-text-container"
   ) as any;
 
   richTextContainer.innerHTML = html;
-}
+};
