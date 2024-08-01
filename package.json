@@ -22,7 +22,7 @@
     "@tsconfig/recommended": "^1.0.6",
     "eslint": "^9.6.0",
     "eslint-config-prettier": "^9.1.0",
-    "husky": "^9.0.11",
+    "husky": "^9.1.4",
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5"
   },
