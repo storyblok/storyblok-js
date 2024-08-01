@@ -1,3 +1,5 @@
+// eslint-disable-next-line
+import { type SbRichTextOptions as stdSbRichTextOptions } from "@storyblok/richtext";
 import { loadBridge } from "./modules/bridge";
 import {
   SbSDKOptions,
@@ -10,28 +12,23 @@ import {
   SbRichTextOptions,
 } from "./types";
 
-import { RichtextResolver } from "storyblok-js-client";
-
-import { type SbRichTextOptions as stdSbRichTextOptions} from "@storyblok/richtext";
-
+import { ISbConfig, RichtextResolver } from "storyblok-js-client";
 
 let richTextResolver;
 
 let bridgeLatest = "https://app.storyblok.com/f/storyblok-v2-latest.js";
 
 export const useStoryblokBridge = <
-  T extends StoryblokComponentType<string> = any
+  T extends StoryblokComponentType<string> = any,
 >(
-  id: Number,
+  id: number,
   cb: (newStory: ISbStoryData<T>) => void,
   options: StoryblokBridgeConfigV2 = {}
 ) => {
   const isServer = typeof window === "undefined";
   const isBridgeLoaded =
     !isServer && typeof window.storyblokRegisterEvent !== "undefined";
-  const storyId = new URL(window.location?.href).searchParams.get(
-    "_storyblok"
-  );
+  const storyId = new URL(window.location?.href).searchParams.get("_storyblok");
   const inStory = +storyId === id;
 
   if (!isBridgeLoaded || !inStory) {
@@ -65,29 +62,38 @@ export const storyblokInit = (pluginOptions: SbSDKOptions = {}) => {
     use = [],
     apiOptions = {},
     richText = {},
-    bridgeUrl
+    bridgeUrl,
   } = pluginOptions;
 
   apiOptions.accessToken = apiOptions.accessToken || accessToken;
 
   // Initialize plugins
   const options = { bridge, apiOptions };
+  // eslint-disable-next-line
   let result: SbInitResult = {};
 
-  use.forEach((pluginFactory: Function) => {
-    result = { ...result, ...pluginFactory(options) };
-  });
+  use.forEach(
+    (
+      pluginFactory: (options: any) => {
+        bridge: boolean;
+        apiOptions: ISbConfig;
+      }
+    ) => {
+      result = { ...result, ...pluginFactory(options) };
+    }
+  );
 
   if (bridgeUrl) {
     bridgeLatest = bridgeUrl;
   }
 
   /*
-  ** Load bridge if you are on the Visual Editor
-  ** For more security: https://www.storyblok.com/faq/how-to-verify-the-preview-query-parameters-of-the-visual-editor
-  */
+   ** Load bridge if you are on the Visual Editor
+   ** For more security: https://www.storyblok.com/faq/how-to-verify-the-preview-query-parameters-of-the-visual-editor
+   */
   const isServer = typeof window === "undefined";
-  const inEditor = !isServer && window.location?.search?.includes('_storyblok_tk');
+  const inEditor =
+    !isServer && window.location?.search?.includes("_storyblok_tk");
   if (bridge !== false && inEditor) {
     loadBridge(bridgeLatest);
   }
@@ -117,8 +123,14 @@ const setComponentResolver = (resolver, resolveFn) => {
 };
 
 export const isRichTextEmpty = (data?: ISbRichtext) => {
-  return !data || !data?.content.some((node) => node.content || node.type === 'blok' || node.type === 'horizontal_rule');
-}
+  return (
+    !data ||
+    !data?.content.some(
+      (node) =>
+        node.content || node.type === "blok" || node.type === "horizontal_rule"
+    )
+  );
+};
 
 export const renderRichText = (
   data?: ISbRichtext,
@@ -167,7 +179,10 @@ export * from "./types";
  * This is a temporaly class to avoid type collision with the legacy richtext resolver.
  * It will become ~~`newSbRichTextOptions`~~ -> `SbRichTextOptions` on v4.x
  */
-export type newSbRichTextOptions = stdSbRichTextOptions;
+export type newSbRichTextOptions<
+  T = string,
+  S = (tag: string, attrs: Record<string, any>, text: string) => T,
+> = stdSbRichTextOptions<T, S>;
 
 // New Richtext Resolver
 export {
@@ -181,4 +196,4 @@ export {
   type SbRichTextResolvers,
   type SbRichTextNodeResolver,
   type SbRichTextImageOptimizationOptions,
-} from "@storyblok/richtext"
+} from "@storyblok/richtext";

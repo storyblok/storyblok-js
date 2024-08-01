@@ -17,7 +17,7 @@ export default (blok: SbBlokData) => {
       };
     }
 
-    return {};    
+    return {};
   } catch {
     return {};
   }

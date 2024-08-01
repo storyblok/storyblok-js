@@ -31,6 +31,7 @@
 </p>
 
 ## Kickstart a new project
+
 Are you eager to dive into coding? **[Follow these steps to kickstart a new project with Storyblok and a JavaScript frontend framework](https://www.storyblok.com/technologies?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js)**, and get started in just a few minutes!
 
 ## Installation
@@ -144,7 +145,7 @@ You can pass [Bridge options](https://www.storyblok.com/docs/Guides/storyblok-la
 ```js
 useStoryblokBridge(story.id, (story) => (state.story = story), {
   resolveRelations: ["Article.author"],
-  resolveLinks: "url"
+  resolveLinks: "url",
 });
 ```
 
