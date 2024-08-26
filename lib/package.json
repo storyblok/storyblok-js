@@ -33,12 +33,12 @@
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.7",
-    "cypress": "^13.7.3",
+    "cypress": "^13.13.3",
     "eslint-plugin-cypress": "^2.15.1",
     "eslint-plugin-jest": "^28.8.0",
     "isomorphic-fetch": "^3.0.0",
     "start-server-and-test": "^2.0.5",
-    "vite": "^5.4.1",
+    "vite": "^5.4.2",
     "vitest": "^2.0.5"
   },
   "babel": {
