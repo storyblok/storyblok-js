@@ -32,14 +32,14 @@
     "storyblok-js-client": "^6.9.0-next.1"
   },
   "devDependencies": {
-    "@tsconfig/recommended": "^1.0.6",
+    "@tsconfig/recommended": "^1.0.7",
     "cypress": "^13.7.3",
     "eslint-plugin-cypress": "^2.15.1",
-    "eslint-plugin-jest": "^28.2.0",
+    "eslint-plugin-jest": "^28.8.0",
     "isomorphic-fetch": "^3.0.0",
-    "start-server-and-test": "^2.0.3",
-    "vite": "^5.2.8",
-    "vitest": "^1.5.0"
+    "start-server-and-test": "^2.0.5",
+    "vite": "^5.4.1",
+    "vitest": "^2.0.5"
   },
   "babel": {
     "presets": [
@@ -64,7 +64,15 @@
   },
   "release": {
     "branches": [
-      "main"
+      "main",
+      {
+        "name": "next",
+        "prerelease": true
+      },
+      {
+        "name": "beta",
+        "prerelease": true
+      }
     ]
   },
   "repository": {
