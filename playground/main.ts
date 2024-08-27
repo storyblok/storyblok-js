@@ -5,7 +5,7 @@ import {
   useStoryblokBridge,
   apiPlugin,
   richTextResolver,
-  newSbRichTextOptions
+  StoryblokRichTextOptions
 } from "@storyblok/js";
 import richTextFixture from "../lib/fixtures/richTextObject.json";
 
@@ -109,7 +109,7 @@ window.loadStoryblokBridgeScript = () => {
 };
 
 window.newRichTextResolver = () => {
-  const options: newSbRichTextOptions = {
+  const options: StoryblokRichTextOptions = {
     resolvers: {
       custom_link: (node) => {
         const attrs = { ...node.attrs };
