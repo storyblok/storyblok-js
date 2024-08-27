@@ -4,6 +4,8 @@ import {
   renderRichText,
   useStoryblokBridge,
   apiPlugin,
+  richTextResolver,
+  StoryblokRichTextOptions
 } from "@storyblok/js";
 import richTextFixture from "../lib/fixtures/richTextObject.json";
 
@@ -43,6 +45,7 @@ declare global {
     initCustomRichText: any;
     renderRichText: any;
     renderRichTextWithOptions: any;
+    newRichTextResolver: any
   }
 }
 
@@ -104,3 +107,28 @@ window.renderRichTextWithOptions = () => {
 window.loadStoryblokBridgeScript = () => {
   loadStoryblokBridge();
 };
+
+window.newRichTextResolver = () => {
+  const options: StoryblokRichTextOptions = {
+    resolvers: {
+      custom_link: (node) => {
+        const attrs = { ...node.attrs };
+
+        return {
+          tag: [
+            {
+              tag: "a",
+              attrs: attrs,
+            },
+          ],
+        };
+      },
+    }
+  }
+  const html = richTextResolver(options).render(richTextFixture as any);
+  const richTextContainer = document.getElementById(
+    "rich-text-container"
+  ) as any;
+
+  richTextContainer.innerHTML = html;
+}
