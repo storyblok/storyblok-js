@@ -12,9 +12,6 @@ import {
 
 import { RichtextResolver } from "storyblok-js-client";
 
-import { type SbRichTextOptions as stdSbRichTextOptions} from "@storyblok/richtext";
-
-
 let richTextResolver;
 
 let bridgeLatest = "https://app.storyblok.com/f/storyblok-v2-latest.js";
@@ -163,22 +160,17 @@ export {
 // Reexport all types so users can have access to them
 export * from "./types";
 
-/**
- * This is a temporaly class to avoid type collision with the legacy richtext resolver.
- * It will become ~~`newSbRichTextOptions`~~ -> `SbRichTextOptions` on v4.x
- */
-export type newSbRichTextOptions = stdSbRichTextOptions;
-
 // New Richtext Resolver
 export {
   BlockTypes,
   MarkTypes,
   richTextResolver,
   TextTypes,
-  type SbRichTextDocumentNode,
-  type SbRichTextNodeTypes,
-  type SbRichTextNode,
-  type SbRichTextResolvers,
-  type SbRichTextNodeResolver,
-  type SbRichTextImageOptimizationOptions,
+  type StoryblokRichTextOptions,
+  type StoryblokRichTextDocumentNode,
+  type StoryblokRichTextNodeTypes,
+  type StoryblokRichTextNode,
+  type StoryblokRichTextResolvers,
+  type StoryblokRichTextNodeResolver,
+  type StoryblokRichTextImageOptimizationOptions,
 } from "@storyblok/richtext"
