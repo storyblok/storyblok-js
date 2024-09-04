@@ -142,7 +142,8 @@ export const renderRichText = (
     }
   }
   // NOTE: This will warn the user about deprecation of legacy Richtext when https://github.com/storyblok/storyblok-js-client/pull/845 is merged
-  return localResolver.render(data);
+  // WE supress the warning on SDK level to avoid spamming the console since user would not need to do anything about it
+  return localResolver.render(data, {}, true);
 };
 
 export const loadStoryblokBridge = () => loadBridge(bridgeLatest);
