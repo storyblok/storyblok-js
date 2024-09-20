@@ -4,7 +4,7 @@ import {
   storyblokEditable,
   renderRichText,
   isRichTextEmpty,
-} from "@storyblok/js";
+} from "../";
 import { describe, it, expect, vi, afterEach } from "vitest";
 
 import richTextFixture from "../fixtures/richTextObject.json";
@@ -72,18 +72,18 @@ describe("@storyblok/js", () => {
     it("should return true when passing an empty or invalid RichText object", () => {
       storyblokInit({ accessToken: "wANpEQEsMYGOwLxwXQ76Ggtt", bridge: false });
       expect(isRichTextEmpty(emptyRichTextFixture)).toBe(true);
-    })
+    });
     it("should return false when passing a valid RichText object", () => {
       storyblokInit({ accessToken: "wANpEQEsMYGOwLxwXQ76Ggtt", bridge: false });
       expect(isRichTextEmpty(richTextFixture)).toBe(false);
-    })
+    });
     it("should return true when passing a falsy value", () => {
       storyblokInit({ accessToken: "wANpEQEsMYGOwLxwXQ76Ggtt", bridge: false });
       expect(isRichTextEmpty("")).toBe(true);
-    })
-  })
+    });
+  });
 
-  // TODO: This might change when legacy rich text resolver is removed and 
+  // TODO: This might change when legacy rich text resolver is removed and
   // the new rich text resolver is implemented instead
   describe("Legacy Rich Text Resolver", () => {
     it("should return the rendered HTML when passing a valid RichText object", () => {
