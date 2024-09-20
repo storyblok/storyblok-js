@@ -152,7 +152,7 @@ useStoryblokBridge(story.id, (story) => (state.story = story), {
 
 To link your app and Storyblok components together will depend on the framework you are using. But, in the end, you must add the `data-blok-c` and `data-blok-uid` attributes, and the `storyblok__outline` class.
 
-We provide you a `storyblokEditable` function to make that easier. As an example, you can check in [@storyblok/vue](https://github.com/storyblok/storyblok-vue/blob/master/lib/index.js#L7-L9) how we use a `v-editable` directive for that:
+We provide you a `storyblokEditable` function to make that easier. As an example, you can check in [@storyblok/vue](https://github.com/storyblok/storyblok-vue/blob/master/src/index.js#L7-L9) how we use a `v-editable` directive for that:
 
 ```js
 import { storyblokEditable } from "@storyblok/js";

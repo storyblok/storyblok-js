@@ -1,12 +1,14 @@
 {
   "name": "@storyblok/vue-playground",
   "version": "0.0.0",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "demo": "vite",
+    "dev": "vite",
     "build": "vite build"
   },
   "devDependencies": {
-    "@storyblok/js": "^2.0.6",
+    "@storyblok/js": "workspace:^",
     "@vitejs/plugin-basic-ssl": "^1.1.0",
     "@vitejs/plugin-vue": "^5.1.2",
     "@vue/tsconfig": "^0.5.1",

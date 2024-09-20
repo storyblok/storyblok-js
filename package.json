@@ -1,32 +1,103 @@
 {
-  "name": "@storyblok/js-workspace",
-  "private": true,
+  "name": "@storyblok/js",
   "version": "0.0.0",
-  "workspaces": [
-    "./lib",
-    "./playground",
-    "./playground-vue"
+  "packageManager": "pnpm@9.1.4",
+  "description": "SDK to integrate Storyblok into your project using JavaScript.",
+  "main": "./dist/storyblok-js.js",
+  "module": "./dist/storyblok-js.mjs",
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist"
   ],
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/storyblok-js.mjs",
+      "require": "./dist/storyblok-js.js"
+    }
+  },
   "scripts": {
-    "dev": "npm run dev --workspace=lib & npm run demo",
-    "demo": "npm run demo --workspace=playground",
-    "demo-vue": "npm run demo --workspace=playground-vue",
-    "build": "npm run build --workspace=lib",
-    "test:unit": "npm run test:unit --workspace=lib",
-    "test:e2e": "npm run test:e2e --workspace=lib",
+    "dev": "vite build --watch",
+    "build": "vite build && tsc",
+    "test": "npm run test:unit && npm run test:e2e",
+    "test:unit": "vitest run",
+    "test:e2e": "start-server-and-test cy:playground http://localhost:5173/ cy:run",
+    "test:e2e-watch": "start-server-and-test cy:playground http://localhost:5173/ cy:open",
+    "cy:playground": "npm run demo --prefix ./playground/vanilla",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open",
     "prepare": "husky install",
+    "prepublishOnly": "npm run build && cp ../README.md ./",
     "prettier": "prettier --write .",
     "lint": "eslint ."
+  },
+  "dependencies": {
+    "@storyblok/richtext": "^2.0.0",
+    "storyblok-js-client": "^6.9.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.4.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@tsconfig/recommended": "^1.0.7",
+    "cypress": "^13.13.3",
     "eslint": "^8.54.0",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-cypress": "^2.15.1",
+    "eslint-plugin-jest": "^28.8.0",
     "husky": "^9.0.11",
+    "isomorphic-fetch": "^3.0.0",
     "lint-staged": "^15.2.9",
-    "prettier": "^3.3.3"
+    "pathe": "^1.1.2",
+    "prettier": "^3.3.3",
+    "start-server-and-test": "^2.0.5",
+    "vite": "^5.4.2",
+    "vitest": "^2.0.5"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  },
+  "release": {
+    "branches": [
+      "main",
+      {
+        "name": "next",
+        "prerelease": true
+      },
+      {
+        "name": "beta",
+        "prerelease": true
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/storyblok/storyblok-js"
+  },
+  "author": "Storyblok",
+  "bugs": {
+    "url": "https://github.com/storyblok/storyblok-js/issues"
+  },
+  "homepage": "https://github.com/storyblok/storyblok-js",
+  "publishConfig": {
+    "access": "public"
   },
   "lint-staged": {
     "*.{vue,svelte,js,jsx,css,ts,tsx}": [
@@ -62,10 +133,5 @@
     "tabWidth": 2,
     "semi": true,
     "singleQuote": false
-  },
-  "release": {
-    "branches": [
-      "main"
-    ]
   }
 }
