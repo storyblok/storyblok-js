@@ -10,7 +10,7 @@
     /* Bundler mode */
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
-    "types": ["vite/client", "node", "vitest/globals"],
+    "types": ["vite/client", "vitest/globals"],
     "allowImportingTsExtensions": true,
 
     /* Linting */
