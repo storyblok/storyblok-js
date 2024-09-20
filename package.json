@@ -19,8 +19,7 @@
   "scripts": {
     "dev": "vite build --watch",
     "build": "vite build && tsc",
-    "test": "npm run test:unit && npm run test:e2e",
-    "test:unit": "vitest run",
+    "test": "vitest run",
     "test:e2e": "start-server-and-test cy:playground http://localhost:5173/ cy:run",
     "test:e2e-watch": "start-server-and-test cy:playground http://localhost:5173/ cy:open",
     "cy:playground": "npm run demo --prefix ./playground/vanilla",
@@ -64,15 +63,6 @@
         }
       ]
     ]
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "json"
-    ],
-    "transform": {
-      "^.+\\.js$": "babel-jest"
-    }
   },
   "release": {
     "branches": [
