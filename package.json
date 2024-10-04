@@ -35,11 +35,11 @@
     "storyblok-js-client": "^6.9.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.4.0",
-    "@commitlint/config-conventional": "^19.2.2",
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
     "@tsconfig/recommended": "^1.0.7",
     "cypress": "^13.13.3",
-    "eslint": "^8.54.0",
+    "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-cypress": "^2.15.1",
     "eslint-plugin-jest": "^28.8.0",

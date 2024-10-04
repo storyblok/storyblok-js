@@ -10,9 +10,9 @@
   "devDependencies": {
     "@storyblok/js": "workspace:^",
     "@vitejs/plugin-basic-ssl": "^1.1.0",
-    "@vitejs/plugin-vue": "^5.1.2",
+    "@vitejs/plugin-vue": "^5.1.4",
     "@vue/tsconfig": "^0.5.1",
-    "vite": "^5.4.2",
-    "vue": "^3.4.38"
+    "vite": "^5.4.8",
+    "vue": "^3.5.10"
   }
 }
