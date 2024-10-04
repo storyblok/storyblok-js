@@ -1,5 +1,6 @@
+/* eslint-disable no-undef */
 import { defineConfig } from "vite";
-import path from "path";
+import { resolve } from 'pathe'
 
 const libName = "storyblok-js";
 
@@ -7,14 +8,14 @@ export default defineConfig(() => {
   return {
     build: {
       lib: {
-        entry: path.resolve(__dirname, "index.ts"),
+        entry: resolve(__dirname, "src/index.ts"),
         name: "storyblok",
         fileName: (format) =>
           format === "es" ? `${libName}.mjs` : `${libName}.js`,
       },
     },
     test: {
-      setupFiles: ["./tests/setup.js"],
+      setupFiles: ["./src/tests/setup.js"],
     },
     define: {
       "process.env": {

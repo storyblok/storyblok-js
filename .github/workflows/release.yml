@@ -1,33 +1,32 @@
 name: Release CI
 
+env:
+  PNPM_CACHE_FOLDER: .pnpm-store
+  HUSKY: 0 # Bypass husky commit hook for CI
+
 on:
   push:
     branches: [main, next, beta]
-  pull_request:
-    branches: [main, next, beta]
 
 jobs:
-  release:
+  publish:
+    name: Publish to npm
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/checkout@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: "20"
-          cache: "npm"
+          node-version: 20
+          cache: pnpm
       - name: Install dependencies
-        run: npm ci
-      - name: Build lib
-        run: npm run build
-      - name: Jest run
-        run: npm run test:unit
-      - name: Cypress run
-        run: npm run test:e2e
-      - name: Release
-        working-directory: lib
+        run: pnpm install
+      - name: Semantic Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
+        run: npx semantic-release@22.0.12

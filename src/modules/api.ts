@@ -4,7 +4,7 @@ import { SbPluginFactory } from "../types";
 const apiFactory: SbPluginFactory = (options = {}) => {
   const { apiOptions } = options;
 
-  if (!apiOptions.accessToken) {
+  if (!apiOptions?.accessToken) {
     console.error(
       "You need to provide an access token to interact with Storyblok API. Read https://www.storyblok.com/docs/api/content-delivery#topics/authentication"
     );

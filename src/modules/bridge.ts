@@ -1,5 +1,5 @@
 let loaded = false;
-const callbacks = [];
+const callbacks: Function[] = [];
 
 export const loadBridge = (src: string) => {
   return new Promise((resolve, reject) => {

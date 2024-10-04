@@ -7,7 +7,7 @@ import {
   richTextResolver,
   StoryblokRichTextOptions
 } from "@storyblok/js";
-import richTextFixture from "../lib/fixtures/richTextObject.json";
+import richTextFixture from "../../src/fixtures/richTextObject.json";
 
 const customSchema = {
   nodes: {},

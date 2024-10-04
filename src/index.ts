@@ -12,7 +12,7 @@ import {
 
 import { RichtextResolver } from "storyblok-js-client";
 
-let richTextResolver;
+let richTextResolver: RichtextResolver;
 
 let bridgeLatest = "https://app.storyblok.com/f/storyblok-v2-latest.js";
 
@@ -29,7 +29,7 @@ export const useStoryblokBridge = <
   const storyId = new URL(window.location?.href).searchParams.get(
     "_storyblok"
   );
-  const inStory = +storyId === id;
+  const inStory = storyId !== null && +storyId === id;
 
   if (!isBridgeLoaded || !inStory) {
     return;
@@ -43,11 +43,11 @@ export const useStoryblokBridge = <
   window.storyblokRegisterEvent(() => {
     const sbBridge: StoryblokBridgeV2 = new window.StoryblokBridge(options);
     sbBridge.on(["input", "published", "change"], (event) => {
-      if (event.action === "input" && event.story.id === id) {
+      if (event?.action === "input" && event?.story?.id === id) {
         cb(event.story);
       } else if (
-        (event.action === "change" || event.action === "published") &&
-        (event.storyId as number) === id
+        (event?.action === "change" || event?.action === "published") &&
+        (event?.storyId as number) === id
       ) {
         window.location.reload();
       }
@@ -99,11 +99,11 @@ export const storyblokInit = (pluginOptions: SbSDKOptions = {}) => {
   return result;
 };
 
-const setComponentResolver = (resolver, resolveFn) => {
-  resolver.addNode("blok", (node) => {
+const setComponentResolver = (resolver: Record<string, any>, resolveFn: Function) => {
+  resolver.addNode("blok", (node: Record<string, any>) => {
     let html = "";
 
-    node.attrs.body.forEach((blok) => {
+    node.attrs.body.forEach((blok: Record<string, unknown>) => {
       html += resolveFn(blok.component, blok);
     });
 
@@ -114,20 +114,20 @@ const setComponentResolver = (resolver, resolveFn) => {
 };
 
 export const isRichTextEmpty = (data?: ISbRichtext) => {
-  return !data || !data?.content.some((node) => node.content || node.type === 'blok' || node.type === 'horizontal_rule');
+  return !data || !data?.content?.some((node) => node.content || node.type === 'blok' || node.type === 'horizontal_rule');
 }
 
 export const renderRichText = (
   data?: ISbRichtext,
   options?: SbRichTextOptions,
   resolverInstance?: RichtextResolver
-): string => {
+): string | undefined => {
   let localResolver = resolverInstance || richTextResolver;
   if (!localResolver) {
     console.error(
       "Please initialize the Storyblok SDK before calling the renderRichText function"
     );
-    return;
+    return undefined;
   }
 
   if (isRichTextEmpty(data)) {
