@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@storyblok/richtext": "^2.0.0",
-    "storyblok-js-client": "^6.9.2"
+    "storyblok-js-client": "^6.10.0"
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.7",
