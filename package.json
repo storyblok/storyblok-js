@@ -20,7 +20,7 @@
     "lint": "eslint ."
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.5.0",
+    "@commitlint/cli": "^19.6.0",
     "@commitlint/config-conventional": "^19.6.0",
     "@tsconfig/recommended": "^1.0.7",
     "eslint": "^8.57.1",
