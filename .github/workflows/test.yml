@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Run Unit Tests
-        run: pnpm run test
+        run: pnpm run test:unit:ci
       - name: Cypress run
         run: pnpm run test:e2e
 
