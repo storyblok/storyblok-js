@@ -10,7 +10,6 @@ env:
   PNPM_CACHE_FOLDER: .pnpm-store
   SKIP_INSTALL_SIMPLE_GIT_HOOKS: 1 # Skip installing simple-git-hooks
 
-
 permissions: {}
 
 concurrency:
