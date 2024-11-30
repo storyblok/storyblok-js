@@ -18,11 +18,6 @@
   "files": [
     "dist"
   ],
-  "workspaces": [
-    "./lib",
-    "./playground",
-    "./playground-vue"
-  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
