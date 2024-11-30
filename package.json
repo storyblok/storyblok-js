@@ -1,7 +1,7 @@
 {
   "name": "@storyblok/js",
+  "type": "module",
   "version": "0.0.0",
-  "private": true,
   "description": "SDK to integrate Storyblok into your project using JavaScript.",
   "license": "MIT",
   "exports": {
@@ -52,6 +52,7 @@
     "isomorphic-fetch": "^3.0.0",
     "kolorist": "^1.8.0",
     "pathe": "^1.1.2",
+    "simple-git-hooks": "^2.11.1",
     "start-server-and-test": "^2.0.8",
     "vite": "^6.0.1",
     "vite-plugin-banner": "^0.8.0",
@@ -68,5 +69,9 @@
     "branches": [
       "main"
     ]
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint",
+    "pre-push": "pnpm commitlint --last --verbose"
   }
 }
