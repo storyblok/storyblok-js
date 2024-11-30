@@ -2,6 +2,7 @@
   "name": "@storyblok/js",
   "type": "module",
   "version": "0.0.0",
+  "packageManager": "pnpm@9.12.2",
   "description": "SDK to integrate Storyblok into your project using JavaScript.",
   "license": "MIT",
   "exports": {
