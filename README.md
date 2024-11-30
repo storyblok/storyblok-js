@@ -1,8 +1,8 @@
 <div align="center">
-	<a href="https://www.storyblok.com?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js" align="center">
-		<img src="https://a.storyblok.com/f/88751/1776x360/296788fb19/sb-js.png"  alt="Storyblok Logo">
-	</a>
-	<h1 align="center">@storyblok/js</h1>
+  <a href="https://www.storyblok.com?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js" align="center">
+    <img src="https://a.storyblok.com/f/88751/1776x360/296788fb19/sb-js.png"  alt="Storyblok Logo">
+  </a>
+  <h1 align="center">@storyblok/js</h1>
   <p align="center">
     The JavaScript SDK you need to interact with <a href="http://www.storyblok.com?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js" target="_blank">Storyblok API</a> and enable the <a href="https://www.storyblok.com/docs/guide/essentials/visual-editor?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js" target="_blank">Real-time Visual Editing Experience</a>.
   </p>
@@ -57,10 +57,10 @@ Install the file from the CDN:
 Register the plugin on your application and add the [access token](https://www.storyblok.com/docs/api/content-delivery#topics/authentication?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js) of your Storyblok space. You can also add the `apiPlugin` in case that you want to use the Storyblok API Client:
 
 ```js
-import { storyblokInit, apiPlugin } from "@storyblok/js";
+import { apiPlugin, storyblokInit } from '@storyblok/js';
 
 const { storyblokApi } = storyblokInit({
-  accessToken: "YOUR_ACCESS_TOKEN",
+  accessToken: 'YOUR_ACCESS_TOKEN',
   use: [apiPlugin],
 });
 ```
@@ -82,13 +82,13 @@ Possible values:
 Full example for a space created in the US:
 
 ```js
-import { storyblokInit, apiPlugin } from "@storyblok/js";
+import { apiPlugin, storyblokInit } from '@storyblok/js';
 
 const { storyblokApi } = storyblokInit({
-  accessToken: "YOUR_ACCESS_TOKEN",
+  accessToken: 'YOUR_ACCESS_TOKEN',
   use: [apiPlugin],
   apiOptions: {
-    region: "us",
+    region: 'us',
   },
 });
 ```
@@ -108,14 +108,14 @@ const { storyblokApi } = storyblokInit({
 Inject `storyblokApi`:
 
 ```js
-import { storyblokInit, apiPlugin } from "@storyblok/js";
+import { apiPlugin, storyblokInit } from '@storyblok/js';
 
 const { storyblokApi } = storyblokInit({
-  accessToken: "YOUR_ACCESS_TOKEN",
+  accessToken: 'YOUR_ACCESS_TOKEN',
   use: [apiPlugin],
 });
 
-const { data } = await storyblokApi.get("cdn/stories", { version: "draft" });
+const { data } = await storyblokApi.get('cdn/stories', { version: 'draft' });
 ```
 
 > Note: if you don't use `apiPlugin`, you can use your prefered method or function to fetch your data.
@@ -125,26 +125,26 @@ const { data } = await storyblokApi.get("cdn/stories", { version: "draft" });
 Use `useStoryblokBridge` or `registerStoryblokBridge` to get the new story every time is triggered a `change` event from the Visual Editor. You need to pass the story id as first param, and a callback function as second param to update the new story:
 
 ```js
-import { storyblokInit, apiPlugin, useStoryblokBridge } from "@storyblok/js";
+import { apiPlugin, storyblokInit, useStoryblokBridge } from '@storyblok/js';
 
 const { storyblokApi } = storyblokInit({
-  accessToken: "YOUR_ACCESS_TOKEN",
+  accessToken: 'YOUR_ACCESS_TOKEN',
   use: [apiPlugin],
 });
 
-const { data } = await storyblokApi.get("cdn/stories", { version: "draft" });
+const { data } = await storyblokApi.get('cdn/stories', { version: 'draft' });
 
 const story = data ? data.story : null;
 
-useStoryblokBridge(story.id, (story) => (state.story = story));
+useStoryblokBridge(story.id, story => (state.story = story));
 ```
 
 You can pass [Bridge options](https://www.storyblok.com/docs/Guides/storyblok-latest-js?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-js) as a third parameter as well:
 
 ```js
-useStoryblokBridge(story.id, (story) => (state.story = story), {
-  resolveRelations: ["Article.author"],
-  resolveLinks: "url"
+useStoryblokBridge(story.id, story => (state.story = story), {
+  resolveRelations: ['Article.author'],
+  resolveLinks: 'url'
 });
 ```
 
@@ -155,15 +155,15 @@ To link your app and Storyblok components together will depend on the framework 
 We provide you a `storyblokEditable` function to make that easier. As an example, you can check in [@storyblok/vue](https://github.com/storyblok/storyblok-vue/blob/master/lib/index.js#L7-L9) how we use a `v-editable` directive for that:
 
 ```js
-import { storyblokEditable } from "@storyblok/js";
+import { storyblokEditable } from '@storyblok/js';
 
 const vEditableDirective = {
   bind(el, binding) {
     if (binding.value) {
       const options = storyblokEditable(binding.value);
-      el.setAttribute("data-blok-c", options["data-blok-c"]);
-      el.setAttribute("data-blok-uid", options["data-blok-uid"]);
-      el.classList.add("storyblok__outline");
+      el.setAttribute('data-blok-c', options['data-blok-c']);
+      el.setAttribute('data-blok-uid', options['data-blok-uid']);
+      el.classList.add('storyblok__outline');
     }
   },
 };
@@ -181,10 +181,10 @@ You can use an `apiOptions` object. This is passed down to the (storyblok-js-cli
 
 ```js
 const { storyblokApi } = storyblokInit({
-  accessToken: "YOUR_ACCESS_TOKEN",
+  accessToken: 'YOUR_ACCESS_TOKEN',
   apiOptions: {
     // storyblok-js-client config object
-    cache: { type: "memory" },
+    cache: { type: 'memory' },
   },
   use: [apiPlugin],
 });
@@ -202,7 +202,7 @@ You can conditionally load it by using the `bridge` option. Very useful if you w
 
 ```js
 const { storyblokApi } = storyblokInit({
-  bridge: process.env.NODE_ENV !== "production",
+  bridge: process.env.NODE_ENV !== 'production',
 });
 ```
 
@@ -211,7 +211,7 @@ If you don't use `useStoryblokBridge` or `registerStoryblokBridge`, you have sti
 ```js
 const sbBridge = new window.StoryblokBridge(options);
 
-sbBridge.on(["input", "published", "change"], (event) => {
+sbBridge.on(['input', 'published', 'change'], (event) => {
   // ...
 });
 ```
@@ -221,7 +221,7 @@ sbBridge.on(["input", "published", "change"], (event) => {
 You can easily render rich text by using the `renderRichText` function that comes with `@storyblok/js`:
 
 ```js
-import { renderRichText } from "@storyblok/js";
+import { renderRichText } from '@storyblok/js';
 
 const renderedRichText = renderRichText(blok.richtext);
 ```
@@ -229,23 +229,23 @@ const renderedRichText = renderRichText(blok.richtext);
 You can set a **custom Schema and component resolver globally** at init time by using the `richText` init option:
 
 ```js
-import { RichTextSchema, storyblokInit } from "@storyblok/js";
-import cloneDeep from "clone-deep";
+import { RichTextSchema, storyblokInit } from '@storyblok/js';
+import cloneDeep from 'clone-deep';
 
 const mySchema = cloneDeep(RichTextSchema); // you can make a copy of the default RichTextSchema
 // ... and edit the nodes and marks, or add your own.
 // Check the base RichTextSchema source here https://github.com/storyblok/storyblok-js-client/blob/master/source/schema.js
 
 storyblokInit({
-  accessToken: "<your-token>",
+  accessToken: '<your-token>',
   richText: {
     schema: mySchema,
     resolver: (component, blok) => {
       switch (component) {
-        case "my-custom-component":
+        case 'my-custom-component':
           return `<div class="my-component-class">${blok.text}</div>`;
         default:
-          return "Resolver not defined";
+          return 'Resolver not defined';
       }
     },
   },
@@ -255,15 +255,14 @@ storyblokInit({
 You can also set a **custom Schema and component resolver only once** by passing the options as the second parameter to `renderRichText` function:
 
 ```js
-import { renderRichText } from "@storyblok/js";
+import { renderRichText } from '@storyblok/js';
 
 renderRichText(blok.richTextField, {
   schema: mySchema,
   resolver: (component, blok) => {
     switch (component) {
-      case "my-custom-component":
+      case 'my-custom-component':
         return `<div class="my-component-class">${blok.text}</div>`;
-        break;
       default:
         return `Component ${component} not found`;
     }
