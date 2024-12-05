@@ -1,4 +1,5 @@
-name: Run Tests
+name: Run tests
+
 on: [push]
 
 env:
@@ -6,31 +7,36 @@ env:
   SKIP_INSTALL_SIMPLE_GIT_HOOKS: 1 # Skip installing simple-git-hooks
 
 jobs:
-  test:
-    name: Unit Test
-    runs-on: ubuntu-latest
+  release:
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
         node-version: [20]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: pnpm
+
       - name: Cache Cypress binary
         uses: actions/cache@v4
         with:
           path: ~/.cache/Cypress
           key: cypress-${{ runner.os }}-cypress-${{ hashFiles('**/pnpm-lock.yaml') }}
+
       - name: Install dependencies
         run: pnpm install
-      - name: Run Unit Tests
+
+      - name: Unit test run
         run: pnpm run test:unit:ci
+
       - name: Cypress run
         run: pnpm run test:e2e
 
