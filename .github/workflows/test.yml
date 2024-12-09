@@ -36,7 +36,7 @@ jobs:
 
       - name: Build lib
         run: pnpm build
-        
+
       - name: Unit test run
         run: pnpm run test:unit:ci
 
