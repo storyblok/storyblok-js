@@ -2,5 +2,6 @@
 node_modules
 dist
 dist-v2
-lib/cypress/videos
-lib/cypress/screenshots
+cypress/videos
+cypress/screenshots
+cypress/downloads
