@@ -7,7 +7,7 @@ env:
   SKIP_INSTALL_SIMPLE_GIT_HOOKS: 1 # Skip installing simple-git-hooks
 
 jobs:
-  release:
+  tests:
     runs-on: ubuntu-24.04
     strategy:
       matrix:
@@ -29,16 +29,16 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.cache/Cypress
-          key: cypress-${{ runner.os }}-cypress-${{ hashFiles('**/pnpm-lock.yaml') }}
+          key: cypress-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
 
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build lib
+      - name: Build Library
         run: pnpm build
 
-      - name: Unit test run
-        run: pnpm run test:unit:ci
+      - name: Vitest run
+        run: pnpm run test:unit:ci --silent
 
       - name: Cypress run
         run: pnpm run test:e2e
