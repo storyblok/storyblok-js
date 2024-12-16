@@ -50,6 +50,7 @@
     "pathe": "^1.1.2",
     "simple-git-hooks": "^2.11.1",
     "start-server-and-test": "^2.0.8",
+    "typescript": "^5.7.2",
     "vite": "^6.0.1",
     "vite-plugin-banner": "^0.8.0",
     "vite-plugin-dts": "^4.3.0",
