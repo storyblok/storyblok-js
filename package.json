@@ -42,7 +42,7 @@
     "@storyblok/eslint-config": "^0.3.0",
     "@tsconfig/recommended": "^1.0.8",
     "@types/node": "^22.10.1",
-    "cypress": "^13.16.0",
+    "cypress": "^13.16.1",
     "eslint": "^9.16.0",
     "eslint-plugin-cypress": "^4.1.0",
     "isomorphic-fetch": "^3.0.0",

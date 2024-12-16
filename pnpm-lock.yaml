@@ -31,7 +31,7 @@ importers:
         specifier: ^22.10.1
         version: 22.10.1
       cypress:
-        specifier: ^13.16.0
+        specifier: ^13.16.1
         version: 13.16.1
       eslint:
         specifier: ^9.16.0
