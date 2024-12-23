@@ -1,72 +1,74 @@
 {
-  "name": "@storyblok/js-workspace",
-  "private": true,
+  "name": "@storyblok/js",
+  "type": "module",
   "version": "0.0.0",
+  "packageManager": "pnpm@9.12.2",
+  "description": "SDK to integrate Storyblok into your project using JavaScript.",
   "license": "MIT",
-  "workspaces": [
-    "./lib",
-    "./playground",
-    "./playground-vue"
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/storyblok-js.mjs",
+      "require": "./dist/storyblok-js.js"
+    }
+  },
+  "main": "./dist/storyblok-js.js",
+  "module": "./dist/storyblok-js.mjs",
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist"
   ],
   "scripts": {
-    "dev": "npm run dev --workspace=lib & npm run demo",
-    "demo": "npm run demo --workspace=playground",
-    "demo-vue": "npm run demo --workspace=playground-vue",
-    "build": "npm run build --workspace=lib",
-    "test:unit": "npm run test:unit --workspace=lib",
-    "test:e2e": "npm run test:e2e --workspace=lib",
-    "prepare": "husky install",
-    "prettier": "prettier --write .",
-    "lint": "eslint ."
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "test:unit": "vitest",
+    "test:unit:ci": "vitest run",
+    "test:unit:ui": "vitest --ui",
+    "test:e2e": "start-server-and-test cy:playground http://localhost:5173/ cy:run",
+    "test:e2e-watch": "start-server-and-test cy:playground http://localhost:5173/ cy:open",
+    "cy:playground": "pnpm --filter='./playground/vanilla' dev",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open"
+  },
+  "dependencies": {
+    "@storyblok/richtext": "^3.0.1",
+    "storyblok-js-client": "^6.10.3"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.5.0",
+    "@commitlint/cli": "^19.6.0",
     "@commitlint/config-conventional": "^19.6.0",
-    "@tsconfig/recommended": "^1.0.7",
-    "eslint": "^8.57.1",
-    "eslint-config-prettier": "^9.1.0",
-    "husky": "^9.0.11",
-    "lint-staged": "^15.2.10",
-    "prettier": "^3.3.3"
-  },
-  "lint-staged": {
-    "*.{vue,svelte,js,jsx,css,ts,tsx}": [
-      "prettier --write",
-      "eslint"
-    ],
-    "*.md": [
-      "prettier --write"
-    ]
+    "@storyblok/eslint-config": "^0.3.0",
+    "@tsconfig/recommended": "^1.0.8",
+    "@types/node": "^22.10.1",
+    "cypress": "^13.16.1",
+    "eslint": "^9.16.0",
+    "eslint-plugin-cypress": "^4.1.0",
+    "isomorphic-fetch": "^3.0.0",
+    "kolorist": "^1.8.0",
+    "pathe": "^1.1.2",
+    "simple-git-hooks": "^2.11.1",
+    "start-server-and-test": "^2.0.8",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.1",
+    "vite-plugin-banner": "^0.8.0",
+    "vite-plugin-dts": "^4.3.0",
+    "vite-plugin-qrcode": "^0.2.3",
+    "vitest": "^2.1.5"
   },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
     ]
   },
-  "eslintConfig": {
-    "extends": [
-      "eslint:recommended",
-      "prettier"
-    ],
-    "env": {
-      "browser": true,
-      "es6": true
-    },
-    "ignorePatterns": "dist/",
-    "parserOptions": {
-      "sourceType": "module",
-      "ecmaVersion": 2018
-    }
-  },
-  "prettier": {
-    "trailingComma": "es5",
-    "tabWidth": 2,
-    "semi": true,
-    "singleQuote": false
-  },
   "release": {
     "branches": [
       "main"
     ]
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint",
+    "pre-push": "pnpm commitlint --last --verbose"
   }
 }

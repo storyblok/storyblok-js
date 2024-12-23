@@ -3,8 +3,8 @@ storyblok/storyblok-nuxt:
     dest: .github/ISSUE_TEMPLATE/issue.bug.yml
     template:
       tech:
-        name: "Nuxt 3"
-        package: "nuxt"
+        name: Nuxt 3
+        package: nuxt
   - source: .github/sb-templates/issue.fr.yml
     dest: .github/ISSUE_TEMPLATE/issue.fr.yml
   - source: .github/sb-templates/config.yml
@@ -15,8 +15,8 @@ storyblok/storyblok-vue:
     dest: .github/ISSUE_TEMPLATE/issue.bug.yml
     template:
       tech:
-        name: "Vue 3"
-        package: "vue"
+        name: Vue 3
+        package: vue
   - source: .github/sb-templates/issue.fr.yml
     dest: .github/ISSUE_TEMPLATE/issue.fr.yml
   - source: .github/sb-templates/config.yml
@@ -27,8 +27,8 @@ storyblok/storyblok-nuxt-2:
     dest: .github/ISSUE_TEMPLATE/issue.bug.yml
     template:
       tech:
-        name: "Nuxt 2"
-        package: "nuxt"
+        name: Nuxt 2
+        package: nuxt
   - source: .github/sb-templates/issue.fr.yml
     dest: .github/ISSUE_TEMPLATE/issue.fr.yml
   - source: .github/sb-templates/config.yml
@@ -39,8 +39,8 @@ storyblok/storyblok-vue-2:
     dest: .github/ISSUE_TEMPLATE/issue.bug.yml
     template:
       tech:
-        name: "Vue 2"
-        package: "vue"
+        name: Vue 2
+        package: vue
   - source: .github/sb-templates/issue.fr.yml
     dest: .github/ISSUE_TEMPLATE/issue.fr.yml
   - source: .github/sb-templates/config.yml
@@ -51,8 +51,8 @@ storyblok/storyblok-react:
     dest: .github/ISSUE_TEMPLATE/issue.bug.yml
     template:
       tech:
-        name: "React"
-        package: "react"
+        name: React
+        package: react
   - source: .github/sb-templates/issue.fr.yml
     dest: .github/ISSUE_TEMPLATE/issue.fr.yml
   - source: .github/sb-templates/config.yml
@@ -63,8 +63,8 @@ storyblok/gatsby-source-storyblok:
     dest: .github/ISSUE_TEMPLATE/issue.bug.yml
     template:
       tech:
-        name: "Gatsby"
-        package: "gatsby"
+        name: Gatsby
+        package: gatsby
   - source: .github/sb-templates/issue.fr.yml
     dest: .github/ISSUE_TEMPLATE/issue.fr.yml
   - source: .github/sb-templates/config.yml
@@ -75,8 +75,8 @@ storyblok/storyblok-svelte:
     dest: .github/ISSUE_TEMPLATE/issue.bug.yml
     template:
       tech:
-        name: "Svelte"
-        package: "svelte"
+        name: Svelte
+        package: svelte
   - source: .github/sb-templates/issue.fr.yml
     dest: .github/ISSUE_TEMPLATE/issue.fr.yml
   - source: .github/sb-templates/config.yml
@@ -87,8 +87,8 @@ storyblok/storyblok-astro:
     dest: .github/ISSUE_TEMPLATE/issue.bug.yml
     template:
       tech:
-        name: "Astro"
-        package: "astro"
+        name: Astro
+        package: astro
   - source: .github/sb-templates/issue.fr.yml
     dest: .github/ISSUE_TEMPLATE/issue.fr.yml
   - source: .github/sb-templates/config.yml
@@ -99,8 +99,8 @@ storyblok/storyblok-js:
     dest: .github/ISSUE_TEMPLATE/issue.bug.yml
     template:
       tech:
-        name: ""
-        package: ""
+        name: ''
+        package: ''
   - source: .github/sb-templates/issue.fr.yml
     dest: .github/ISSUE_TEMPLATE/issue.fr.yml
   - source: .github/sb-templates/config.yml
