@@ -1,26 +1,35 @@
 {
   "name": "@storyblok/js",
   "type": "module",
-  "version": "0.0.0",
-  "packageManager": "pnpm@9.12.2",
+  "version": "3.2.0",
+  "private": false,
+  "packageManager": "pnpm@9.15.1",
   "description": "SDK to integrate Storyblok into your project using JavaScript.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/storyblok/storyblok-js"
+  },
+  "bugs": {
+    "url": "https://github.com/storyblok/storyblok-js/issues"
+  },
   "exports": {
     ".": {
-      "types": "./dist/types/index.d.ts",
+      "types": "./dist/index.d.ts",
       "import": "./dist/storyblok-js.mjs",
       "require": "./dist/storyblok-js.js"
     }
   },
   "main": "./dist/storyblok-js.js",
   "module": "./dist/storyblok-js.mjs",
-  "types": "./dist/types/index.d.ts",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
+    "test": "pnpm run test:unit:ci && pnpm run test:e2e",
     "test:unit": "vitest",
     "test:unit:ci": "vitest run",
     "test:unit:ui": "vitest --ui",
@@ -37,25 +46,24 @@
     "storyblok-js-client": "6.10.6"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.6.0",
+    "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
     "@storyblok/eslint-config": "^0.3.0",
     "@tsconfig/recommended": "^1.0.8",
-    "@types/node": "^22.10.1",
-    "cypress": "^13.16.1",
-    "eslint": "^9.16.0",
+    "@types/node": "^22.10.2",
+    "cypress": "^13.17.0",
+    "eslint": "^9.17.0",
     "eslint-plugin-cypress": "^4.1.0",
-    "isomorphic-fetch": "^3.0.0",
     "kolorist": "^1.8.0",
     "pathe": "^1.1.2",
     "simple-git-hooks": "^2.11.1",
-    "start-server-and-test": "^2.0.8",
+    "start-server-and-test": "^2.0.9",
     "typescript": "^5.7.2",
-    "vite": "^6.0.1",
+    "vite": "^6.0.5",
     "vite-plugin-banner": "^0.8.0",
-    "vite-plugin-dts": "^4.3.0",
+    "vite-plugin-dts": "^4.4.0",
     "vite-plugin-qrcode": "^0.2.3",
-    "vitest": "^2.1.5"
+    "vitest": "^2.1.8"
   },
   "commitlint": {
     "extends": [

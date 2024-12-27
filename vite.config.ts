@@ -1,6 +1,5 @@
-/// <reference types="vitest" />
-
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vitest/config';
+import path from 'node:path';
 import { lightGreen } from 'kolorist';
 import banner from 'vite-plugin-banner';
 import dts from 'vite-plugin-dts';
@@ -21,16 +20,21 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: 'src/index.ts',
+      entry: path.resolve(__dirname, 'src', 'index.ts'),
       name: 'storyblok',
-      fileName: format => `storyblok-js.${format}.js`,
+      fileName: (format) => {
+        const name = 'storyblok-js';
+        return format === 'es' ? `${name}.mjs` : `${name}.js`;
+      },
     },
-    /* minify: false, */
   },
   test: {
+    globals: true,
+    include: ['./src/**/*.test.ts'],
+    exclude: ['./cypress'],
     coverage: {
-      include: ['src/**'],
-      exclude: ['src/index.ts'],
+      include: ['src'],
+      reporter: ['text', 'json', 'html'],
       reportsDirectory: './tests/unit/coverage',
     },
   },
