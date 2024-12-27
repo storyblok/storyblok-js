@@ -37,5 +37,6 @@ export default defineConfig({
       reporter: ['text', 'json', 'html'],
       reportsDirectory: './tests/unit/coverage',
     },
+    environment: 'jsdom',
   },
 });
