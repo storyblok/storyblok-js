@@ -1,11 +1,43 @@
 version: 2
 updates:
+  # First rule for storyblok packages - allows all updates
   - package-ecosystem: npm
+    target-branch: main
     directory: /
     schedule:
       interval: daily
-      time: '03:00'
+      time: '04:00'
     commit-message:
       prefix: fix
       prefix-development: chore
       include: scope
+    labels:
+      - dependencies
+    allow:
+      - dependency-name: 'storyblok*'
+
+  # Second rule for all other packages - patch updates only
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: daily
+      time: '04:00'
+    commit-message:
+      prefix: fix
+      prefix-development: chore
+      include: scope
+    labels:
+      - dependencies
+    groups:
+      security-updates:
+        patterns:
+          - '*'
+        exclude-patterns:
+          - 'storyblok*'
+        update-types:
+          - patch
+    ignore:
+      - dependency-name: '*'
+        update-types:
+          - version-update:semver-minor
+          - version-update:semver-major
