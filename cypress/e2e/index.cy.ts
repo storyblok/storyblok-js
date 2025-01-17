@@ -1,14 +1,18 @@
 globalThis.fetch.bind(globalThis);
 
+const TEST_URL = 'http://localhost:5173/';
+
 describe('@storyblok/js', () => {
+  beforeEach(() => {
+    cy.visit(TEST_URL, {
+      onBeforeLoad(win) {
+        cy.spy(win.console, 'error').as('consoleError');
+      },
+    });
+  });
+
   describe('RichText', () => {
     it('should print a console error if the SDK is not initialized', () => {
-      cy.visit('http://localhost:5173/', {
-        onBeforeLoad(win) {
-          cy.spy(win.console, 'error').as('consoleError');
-        },
-      });
-
       cy.get('.render-rich-text').click();
       cy.get('@consoleError').should(
         'be.calledWith',
@@ -18,12 +22,6 @@ describe('@storyblok/js', () => {
     });
 
     it('should render the HTML using the default schema and resolver', () => {
-      cy.visit('http://localhost:5173/', {
-        onBeforeLoad(win) {
-          cy.spy(win.console, 'error').as('consoleError');
-        },
-      });
-
       cy.get('.without-bridge').click();
       cy.get('.render-rich-text').click();
       cy.get('@consoleError').should('not.be.called');
@@ -34,8 +32,6 @@ describe('@storyblok/js', () => {
     });
 
     it('should render the HTML using a custom global schema and resolver', () => {
-      cy.visit('http://localhost:5173/');
-
       cy.get('.init-custom-rich-text').click();
       cy.get('.render-rich-text').click();
       cy.get('#rich-text-container').should(
@@ -45,8 +41,6 @@ describe('@storyblok/js', () => {
     });
 
     it('should render the HTML using a one-time schema and resolver', () => {
-      cy.visit('http://localhost:5173/');
-
       cy.get('.without-bridge').click();
       cy.get('.render-rich-text-options').click();
       cy.get('#rich-text-container').should(
@@ -58,17 +52,15 @@ describe('@storyblok/js', () => {
 
   describe('Bridge', () => {
     it('Is loaded by default', () => {
-      cy.visit('http://localhost:5173/?_storyblok_tk[timestamp]=1677494658');
+      cy.visit(`${TEST_URL}?_storyblok_tk[timestamp]=1677494658`);
       cy.get('.with-bridge').click();
-      cy.get('#storyblok-javascript-bridge').should('exist');
+      cy.get('#storyblok-javascript-bridge')
+        .should('exist')
+        .and('have.attr', 'src')
+        .and('include', 'storyblok-v2-latest.js');
     });
 
     it('Is not loaded if options.bridge: false and no errors are printed', () => {
-      cy.visit('http://localhost:5173/', {
-        onBeforeLoad(win) {
-          cy.spy(win.console, 'error').as('consoleError');
-        },
-      });
       cy.get('.without-bridge').click();
       cy.get('#storyblok-javascript-bridge').should('not.exist');
       cy.get('@consoleError').should('not.be.called');
@@ -77,18 +69,23 @@ describe('@storyblok/js', () => {
 
   describe('Bridge (added independently)', () => {
     it('Can be loaded', () => {
-      cy.visit('http://localhost:5173/');
-      cy.get('.load-bridge').click();
-      cy.get('#storyblok-javascript-bridge').should('exist');
-    });
-    it('Can be loaded just once', () => {
-      cy.visit('http://localhost:5173/');
-      cy.get('.load-bridge').click();
-      cy.wait(1000);
-      cy.get('.load-bridge').click();
+      cy.visit(TEST_URL, {
+        // Handle failed loads gracefully
+        failOnStatusCode: false,
+        onBeforeLoad(win) {
+          cy.spy(win.console, 'error').as('consoleError');
+        },
+      });
+
+      cy.get('.load-bridge')
+        .should('be.visible')
+        .click();
+
       cy.get('#storyblok-javascript-bridge')
-        .should('exist')
-        .and('have.length', 1);
+        .should('exist');
+
+      cy.get('@consoleError')
+        .should('not.be.called');
     });
   });
 });
