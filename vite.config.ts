@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitest/config';
+import { defineConfig, type Plugin } from 'vitest/config';
 import path from 'node:path';
 import { lightGreen } from 'kolorist';
 import banner from 'vite-plugin-banner';
@@ -17,7 +17,7 @@ export default defineConfig({
     banner({
       content: `/**\n * name: ${pkg.name}\n * (c) ${new Date().getFullYear()}\n * description: ${pkg.description}\n * author: ${pkg.author}\n */`,
     }),
-  ],
+  ] as Plugin[],
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src', 'index.ts'),

@@ -18,6 +18,8 @@ concurrency:
 
 jobs:
   build:
+    # Skip job if PR is from Dependabot
+    if: github.actor != 'dependabot[bot]'
     runs-on: ubuntu-latest
     strategy:
       matrix:
