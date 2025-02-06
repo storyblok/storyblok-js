@@ -67,6 +67,9 @@
     "vite-plugin-qrcode": "^0.2.4",
     "vitest": "^3.0.5"
   },
+  "pnpm": {
+    "onlyBuiltDependencies": ["cypress"]
+  },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
