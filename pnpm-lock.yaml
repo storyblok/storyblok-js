@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@storyblok/richtext':
-        specifier: 3.0.2
-        version: 3.0.2
+        specifier: https://pkg.pr.new/@storyblok/richtext@8a49bc6
+        version: https://pkg.pr.new/@storyblok/richtext@8a49bc6
       storyblok-js-client:
         specifier: 6.10.7
         version: 6.10.7
@@ -734,8 +734,9 @@ packages:
     peerDependencies:
       eslint: '>=8.40.0'
 
-  '@storyblok/richtext@3.0.2':
-    resolution: {integrity: sha512-KBLx9ycNVMyVnNyPiwBH5g9uWmiJpMzp9YvpnnADXlPLoksusrwI56BusSM8HaIgJgcnB5RR0LvhySkPFdC8Zg==}
+  '@storyblok/richtext@https://pkg.pr.new/@storyblok/richtext@8a49bc6':
+    resolution: {tarball: https://pkg.pr.new/@storyblok/richtext@8a49bc6}
+    version: 3.0.2
 
   '@stylistic/eslint-plugin@2.11.0':
     resolution: {integrity: sha512-PNRHbydNG5EH8NK4c+izdJlxajIR6GxcUhzsYNRsn6Myep4dsZt0qFCz3rCPnkvgO5FYibDcMqgNHUT+zvjYZw==}
@@ -3860,7 +3861,7 @@ snapshots:
       - typescript
       - vitest
 
-  '@storyblok/richtext@3.0.2': {}
+  '@storyblok/richtext@https://pkg.pr.new/@storyblok/richtext@8a49bc6': {}
 
   '@stylistic/eslint-plugin@2.11.0(eslint@9.19.0(jiti@2.4.2))(typescript@5.7.3)':
     dependencies:
