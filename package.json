@@ -42,7 +42,7 @@
     "cy:open": "cypress open"
   },
   "dependencies": {
-    "@storyblok/richtext": "3.0.2",
+    "@storyblok/richtext": "https://pkg.pr.new/@storyblok/richtext@8a49bc6",
     "storyblok-js-client": "6.10.7"
   },
   "devDependencies": {
@@ -68,14 +68,20 @@
     "vitest": "^3.0.5"
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["cypress"]
+    "onlyBuiltDependencies": [
+      "cypress"
+    ]
   },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
     ],
     "rules": {
-      "body-max-line-length": [2, "always", 200]
+      "body-max-line-length": [
+        2,
+        "always",
+        200
+      ]
     }
   },
   "release": {
