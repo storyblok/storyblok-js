@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@storyblok/richtext": "3.0.2",
-    "storyblok-js-client": "6.10.9"
+    "storyblok-js-client": "6.10.10"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.7.1",
