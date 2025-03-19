@@ -39,7 +39,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "cy:run": "cypress run",
-    "cy:open": "cypress open"
+    "cy:open": "cypress open",
+    "check-licenses": "node scripts/license-checker.mjs"
   },
   "dependencies": {
     "@storyblok/richtext": "3.1.0",
@@ -57,6 +58,7 @@
     "eslint-plugin-cypress": "^4.1.0",
     "jsdom": "^26.0.0",
     "kolorist": "^1.8.0",
+    "license-checker": "^25.0.1",
     "pathe": "^2.0.2",
     "simple-git-hooks": "^2.11.1",
     "start-server-and-test": "^2.0.10",
@@ -68,14 +70,20 @@
     "vitest": "^3.0.5"
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["cypress"]
+    "onlyBuiltDependencies": [
+      "cypress"
+    ]
   },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
     ],
     "rules": {
-      "body-max-line-length": [2, "always", 200]
+      "body-max-line-length": [
+        2,
+        "always",
+        200
+      ]
     }
   },
   "release": {
