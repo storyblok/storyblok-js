@@ -22,30 +22,6 @@ storyblok/storyblok-vue:
   - source: .github/sb-templates/config.yml
     dest: .github/ISSUE_TEMPLATE/config.yml
 
-storyblok/storyblok-nuxt-2:
-  - source: .github/sb-templates/issue.bug.yml
-    dest: .github/ISSUE_TEMPLATE/issue.bug.yml
-    template:
-      tech:
-        name: Nuxt 2
-        package: nuxt
-  - source: .github/sb-templates/issue.fr.yml
-    dest: .github/ISSUE_TEMPLATE/issue.fr.yml
-  - source: .github/sb-templates/config.yml
-    dest: .github/ISSUE_TEMPLATE/config.yml
-
-storyblok/storyblok-vue-2:
-  - source: .github/sb-templates/issue.bug.yml
-    dest: .github/ISSUE_TEMPLATE/issue.bug.yml
-    template:
-      tech:
-        name: Vue 2
-        package: vue
-  - source: .github/sb-templates/issue.fr.yml
-    dest: .github/ISSUE_TEMPLATE/issue.fr.yml
-  - source: .github/sb-templates/config.yml
-    dest: .github/ISSUE_TEMPLATE/config.yml
-
 storyblok/storyblok-react:
   - source: .github/sb-templates/issue.bug.yml
     dest: .github/ISSUE_TEMPLATE/issue.bug.yml
