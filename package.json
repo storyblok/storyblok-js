@@ -52,7 +52,7 @@
     "@storyblok/eslint-config": "^0.3.0",
     "@tsconfig/recommended": "^1.0.8",
     "@types/node": "^22.13.1",
-    "@vitest/ui": "3.1.1",
+    "@vitest/ui": "3.1.2",
     "cypress": "^13.17.0",
     "eslint": "^9.19.0",
     "eslint-plugin-cypress": "^4.1.0",
