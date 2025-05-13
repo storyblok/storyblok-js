@@ -34,18 +34,6 @@ storyblok/storyblok-react:
   - source: .github/sb-templates/config.yml
     dest: .github/ISSUE_TEMPLATE/config.yml
 
-storyblok/gatsby-source-storyblok:
-  - source: .github/sb-templates/issue.bug.yml
-    dest: .github/ISSUE_TEMPLATE/issue.bug.yml
-    template:
-      tech:
-        name: Gatsby
-        package: gatsby
-  - source: .github/sb-templates/issue.fr.yml
-    dest: .github/ISSUE_TEMPLATE/issue.fr.yml
-  - source: .github/sb-templates/config.yml
-    dest: .github/ISSUE_TEMPLATE/config.yml
-
 storyblok/storyblok-svelte:
   - source: .github/sb-templates/issue.bug.yml
     dest: .github/ISSUE_TEMPLATE/issue.bug.yml
