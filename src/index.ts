@@ -105,12 +105,9 @@ export const storyblokInit = (pluginOptions: SbSDKOptions = {}) => {
  * @returns The rendered rich text
  */
 export function renderRichText<T = string>(
-  data?: StoryblokRichTextNode<T>,
+  data: StoryblokRichTextNode<T>,
   options?: StoryblokRichTextOptions<T>,
 ): T | undefined {
-  if (!data) {
-    return undefined;
-  }
   return richTextResolver(options).render(data);
 };
 

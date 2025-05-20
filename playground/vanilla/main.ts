@@ -61,6 +61,7 @@ window.renderRichText = () => {
     },
   };
   const html = renderRichText(richTextFixture as any, options);
+
   const richTextContainer = document.getElementById(
     'rich-text-container',
   ) as any;
