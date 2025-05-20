@@ -1,6 +1,5 @@
 import {
   apiPlugin,
-  isRichTextEmpty,
   renderRichText,
   type SbInitResult,
   type SbPluginFactory,
@@ -262,21 +261,6 @@ describe('@storyblok/js', () => {
 
       expect(editableResult['data-blok-c']).toBeDefined();
       expect(editableResult['data-blok-uid']).toBeDefined();
-    });
-  });
-
-  describe('isRichTextEmpty', () => {
-    it('should return true when passing an empty or invalid RichText object', () => {
-      storyblokInit({ accessToken: 'wANpEQEsMYGOwLxwXQ76Ggtt', bridge: false });
-      expect(isRichTextEmpty(emptyRichTextFixture)).toBe(true);
-    });
-    it('should return false when passing a valid RichText object', () => {
-      storyblokInit({ accessToken: 'wANpEQEsMYGOwLxwXQ76Ggtt', bridge: false });
-      expect(isRichTextEmpty(richTextFixture)).toBe(false);
-    });
-    it('should return true when passing a falsy value', () => {
-      storyblokInit({ accessToken: 'wANpEQEsMYGOwLxwXQ76Ggtt', bridge: false });
-      expect(isRichTextEmpty('' as any)).toBe(true);
     });
   });
 
