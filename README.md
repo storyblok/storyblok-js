@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="https://npmjs.com/package/@storyblok/js">
-    <img src="https://img.shields.io/npm/v/@storyblok/js/latest.svg?style=flat-square&color=8d60ff" alt="Storyblok JS Client" />
+    <img src="https://img.shields.io/npm/v/@storyblok/js/latest.svg?style=flat-square&color=8d60ff" alt="Storyblok JS SDK" />
   </a>
   <a href="https://npmjs.com/package/@storyblok/js" rel="nofollow">
     <img src="https://img.shields.io/npm/dt/@storyblok/js.svg?style=appveyor&color=8d60ff" alt="npm">
@@ -37,55 +37,9 @@
 
 For complete documentation, please visit [package reference](https://www.storyblok.com/docs/packages/storyblok-js)
 
-## Setup
+## Contributing
 
-This package relies on [pnpm workspaces](https://pnpm.io/workspaces) to manage dependencies. For instructions on how to install pnpm, please visit [pnpm.io](https://pnpm.io/installation).
-
-```bash
-pnpm install
-```
-
-## Build
-
-```bash
-pnpm build
-```
-
-## Development
-
-We strongly recommend using the `playgrounds` to develop and manually test the package.
-
-Make sure the playground project has the root project as a dependency using `workspace:^` in the `package.json`:
-
-```json
-"dependencies": {
-  "@storyblok/js": "workspace:*"
-}
-```
-
-Use the Google Chrome developer tools to debug the package from the playground project by resolving the package from the local file system in your `vite.config.ts` file. Example:
-
-```ts
-import { defineConfig } from 'vite'
-
-
-export default defineConfig({
-  resolve: {
-    alias: {
-      '@storyblok/js': resolve(__dirname, '../src/index.ts'),
-    },
-  },
-})
-```
-
-## Test
-
-[Depending on the package, you might have a combination of unit tests, integration tests, and/or end-to-end tests. Structure this part accordingly]: #
-
-```bash
-pnpm test
-```
-
+If you'd like to contribute, please refer to the [contributing guidelines](CONTRIBUTING.md).
 
 ## Community
 
@@ -99,22 +53,19 @@ For community support, chatting with other users, please visit:
 
 ## Support
 
-For bugs or feature requests, please [submit an issue](https://github.com/storyblok/js/issues/new/choose).
+For bugs or feature requests, please [submit an issue](https://github.com/storyblok/storyblok-js/issues/new/choose).
 
 > [!IMPORTANT]
 > Please search existing issues before submitting a new one. Issues without a minimal reproducible example will be closed. [Why reproductions are Required](https://antfu.me/posts/why-reproductions-are-required).
 
-### I can't share my company project code 
+### I can't share my company project code
 
-We understand that you might not be able to share your company's project code. Please provide a minimal reproducible example that demonstrates the issue by using tools like [Stackblitz](https://stackblitz.com) or a link to a Github Repo lease make sure you include a README file with the instructions to build and run the project, important not to include any access token, password or personal information of any kind. 
+We understand that you might not be able to share your company's project code. Please provide a minimal reproducible example that demonstrates the issue by using tools like [Stackblitz](https://stackblitz.com) or a link to a Github Repo lease make sure you include a README file with the instructions to build and run the project, important not to include any access token, password or personal information of any kind.
 
-### I only have a question
+### Feedback
 
 If you have a question, please ask in the [Discuss Storyblok on Discord](https://discord.gg/jKrbAMz) channel.
 
-## Contributing
-
-If you're interested in contributing to js, please read our [contributing docs](https://github.com/storyblok/.github/blob/main/CONTRIBUTING.md) before submitting a pull request.
 
 ## License
 
