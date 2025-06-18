@@ -1,3 +1,14 @@
+> [!IMPORTANT]
+> **📦 Package Migration Notice**
+> 
+> This package has been migrated to the [Storyblok monorepo](https://github.com/storyblok/monoblok). 
+> 
+> **⚠️ This repository has been archived and is no longer maintained. Development has moved to the monorepo.**
+> 
+> **New Location**: You can now find this package at [packages/js](https://github.com/storyblok/monoblok/tree/main/packages/js)
+> 
+> Please visit the monorepo for the latest updates, issues, and contributions.
+
 <div align="center">
 
 ![Storyblok ImagoType](https://raw.githubusercontent.com/storyblok/.github/refs/heads/main/profile/public/github-banner.png)
